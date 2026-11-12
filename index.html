@@ -1,71 +1,185 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>Idol Table</title>
+<title>Idol Quiz — K-pop 덕력고사</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f6f7f9">
-<meta name="description" content="Where K-pop idols ate and what they ordered, from published reports — plus a daily ten-question quiz you can play without an account.">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0c0e14">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="누가누가 최애를 제일 잘 맞추나! BTS, 세븐틴, 스키즈 10초 스피드 퀴즈 배틀. 내 덕력 등급을 확인하고 친구에게 도전장을 보내보세요.">
 <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 </head>
 <body>
-<div id="loadError" class="load-error" hidden></div>
-<noscript><p class="load-error">This site needs JavaScript. All content is plain JSON loaded by the page.</p></noscript>
 
-<main id="app">
+<div class="glow-bg" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+</div>
 
+<main id="app" class="wrap">
+
+  <!-- Top bar -->
   <header class="topbar">
-    <a class="brand" id="brand" href="#/">Idol Table</a>
-    <span class="topbar-right">
-      <a class="top-link" id="navIdols" href="#/idols"></a>
-      <a class="top-link" id="navQuiz" href="#/quiz"></a>
-      <button class="lang-btn" id="langToggle" type="button" aria-label="Switch language">한국어</button>
-    </span>
+    <a class="brand" href="#/" id="brandLogo">
+      <span class="brand-badge">QUIZ</span>
+      <span class="brand-text">Idol Quiz</span>
+    </a>
+    <div class="topbar-stats">
+      <div class="stat-pill" title="연속 도전 스트릭">
+        <span class="pill-icon">🔥</span>
+        <span class="pill-val" id="streakVal">1일차</span>
+      </div>
+      <div class="stat-pill" title="획득한 배지">
+        <span class="pill-icon">🏆</span>
+        <span class="pill-val" id="badgeVal">새싹</span>
+      </div>
+    </div>
   </header>
 
-  <!-- Featured Course Samples Banner -->
-  <div style="background:#f4eee6; padding:12px 16px; margin:8px 0 16px; border-radius:8px; border:1px solid #dcd4c4; font-size:13px; line-height:1.6;">
-    <strong style="display:block; color:#a63b2a; margin-bottom:4px; font-size:14px;">📍 근거 기반 K-pop 성지순례 코스 시안</strong>
-    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;">
-      <a href="sample-course-bts.html" style="background:#fff; color:#5b2e91; padding:6px 12px; border-radius:6px; text-decoration:none; font-weight:700; border:1px solid #d1c4e9; box-shadow:0 1px 2px rgba(0,0,0,0.05);">💜 BTS 용산 코스</a>
-      <a href="sample-seventeen-seongsu.html" style="background:#fff; color:#1f5d4a; padding:6px 12px; border-radius:6px; text-decoration:none; font-weight:700; border:1px solid #b2dfdb; box-shadow:0 1px 2px rgba(0,0,0,0.05);">💎 세븐틴 성수 코스</a>
-      <a href="sample-rescene.html" style="background:#fff; color:#a63b2a; padding:6px 12px; border-radius:6px; text-decoration:none; font-weight:700; border:1px solid #ffccbc; box-shadow:0 1px 2px rgba(0,0,0,0.05);">🌸 리센느 강남 코스</a>
+  <!-- VIEW: HOME -->
+  <section class="view" id="view-home">
+    <div class="hero">
+      <p class="hero-eyebrow">⚡ K-POP SPEED TRIVIA</p>
+      <h1 class="hero-title">당신의 K-pop 덕력은<br><span class="gradient-text">몇 등급인가요?</span></h1>
+      <p class="hero-desc">가사 빈칸부터 레전드 예능 TMI까지!<br>10초 안에 맞히고 전국 팬덤 순위에 도전하세요.</p>
     </div>
-  </div>
 
-  <!-- Home -->
-  <section class="view" id="view-home" aria-labelledby="homeTitle" hidden></section>
-  <!-- Idol index -->
-  <section class="view" id="view-idols" hidden></section>
-  <!-- Idol detail -->
-  <section class="view" id="view-idol" hidden></section>
-  <!-- Area index -->
-  <section class="view" id="view-areas" hidden></section>
-  <!-- Area detail -->
-  <section class="view" id="view-area" hidden></section>
-  <!-- Place detail -->
-  <section class="view" id="view-place" hidden></section>
-  <!-- Route index -->
-  <section class="view" id="view-routes" hidden></section>
-  <!-- Route detail -->
-  <section class="view" id="view-route" hidden></section>
-  <!-- Quiz -->
-  <section class="view" id="view-quiz" hidden></section>
-  <!-- Result -->
-  <section class="view" id="view-result" hidden></section>
-  <!-- My record, badges, ranking code -->
-  <section class="view" id="view-me" hidden></section>
+    <!-- Daily Quick Play Card -->
+    <div class="daily-card" id="btnDailyPlay">
+      <div class="daily-badge">TODAY'S SPECIAL</div>
+      <div class="daily-content">
+        <h2 class="daily-title">🔥 오늘의 데일리 올스타 10문항</h2>
+        <p class="daily-sub">매일 자정 갱신 · 누구나 풀 수 있는 전역 통합전</p>
+      </div>
+      <button class="btn-play-daily" type="button">
+        <span>도전하기</span>
+        <span class="arrow">→</span>
+      </button>
+    </div>
 
-  <!-- ===== Ad slot (placeholder only, no code): a display ad unit goes here after launch. ===== -->
+    <!-- Category Selector -->
+    <div class="section-head">
+      <h3 class="section-title">그룹별 집중 영역</h3>
+      <span class="section-tag">10문제 스피드런</span>
+    </div>
 
-  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <div class="category-grid" id="categoryGrid">
+      <!-- Injected by JS -->
+    </div>
 
+    <!-- Bottom Info -->
+    <footer class="home-foot">
+      <p class="foot-note">공개 가사 및 공식 방송·인터뷰 자료 기반으로 제작되었습니다.</p>
+      <div class="foot-links">
+        <span class="foot-chip">서버비 0원</span>
+        <span class="foot-chip">회원가입 없음</span>
+        <span class="foot-chip">실시간 로컬 연산</span>
+      </div>
+    </footer>
+  </section>
 
-  <footer class="site-foot" id="siteFoot"></footer>
+  <!-- VIEW: QUIZ PLAY -->
+  <section class="view" id="view-quiz" hidden>
+    <div class="quiz-nav">
+      <button class="btn-back" id="btnQuitQuiz" type="button" aria-label="퀴즈 나가기">✕</button>
+      <div class="quiz-progress-wrap">
+        <div class="progress-labels">
+          <span class="q-counter" id="qCounter">문제 1 / 10</span>
+          <span class="q-group-tag" id="qGroupTag">💜 BTS 영역</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 10%;"></div>
+        </div>
+      </div>
+      <div class="timer-badge" id="timerBadge">
+        <span class="timer-icon">⏱</span>
+        <span class="timer-sec" id="timerSec">10</span>
+      </div>
+    </div>
+
+    <!-- Question Box -->
+    <div class="question-card" id="questionCard">
+      <span class="category-pill" id="qCategoryPill">🎵 가사 빈칸</span>
+      <h2 class="question-text" id="qText">문제가 로딩 중입니다...</h2>
+    </div>
+
+    <!-- Choices -->
+    <div class="choices-list" id="choicesList" role="group">
+      <!-- Injected by JS -->
+    </div>
+
+    <!-- Feedback card -->
+    <div class="feedback-card" id="feedbackCard" hidden>
+      <div class="verdict-row">
+        <span class="verdict-icon" id="verdictIcon">✓</span>
+        <span class="verdict-text" id="verdictText">정답입니다! (+10점)</span>
+      </div>
+      <p class="explain-text" id="explainText">해설 내용이 여기에 들어갑니다.</p>
+      <button class="btn-next" id="btnNextQ" type="button">다음 문제로 넘어가기 →</button>
+    </div>
+  </section>
+
+  <!-- VIEW: RESULT -->
+  <section class="view" id="view-result" hidden>
+    <div class="result-header">
+      <p class="result-eyebrow">🎉 TEST COMPLETE</p>
+      <h2 class="result-title">덕력 고사 결과</h2>
+    </div>
+
+    <!-- Shareable Photocard -->
+    <div class="photocard" id="photocard">
+      <div class="card-shimmer"></div>
+      <div class="card-top">
+        <span class="card-logo">⚡ IDOL QUIZ</span>
+        <span class="card-target" id="resTargetGroup">💜 BTS 방탄 영역</span>
+      </div>
+
+      <div class="tier-badge-box">
+        <span class="tier-icon" id="resTierIcon">👑</span>
+        <h3 class="tier-name" id="resTierName">성골 1등 덕후</h3>
+        <p class="tier-desc" id="resTierDesc">숨소리만 들어도 최애를 맞히는 살아있는 백과사전!</p>
+      </div>
+
+      <div class="score-display">
+        <div class="score-main">
+          <span class="score-number" id="resScoreNum">90</span>
+          <span class="score-total">/ 100</span>
+        </div>
+        <div class="score-stats">
+          <div class="stat-col">
+            <span class="col-label">정답</span>
+            <span class="col-val" id="resCorrectCount">9 / 10</span>
+          </div>
+          <div class="stat-col">
+            <span class="col-label">소요 시간</span>
+            <span class="col-val" id="resTimeUsed">34초</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-foot">
+        <span class="foot-url">idolquiz.kr · github.io/idoltable</span>
+        <span class="card-hash" id="resCodeHash">IDOL2026.B90</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="result-actions">
+      <button class="btn-action primary" id="btnCopyShare" type="button">
+        <span>📋 결과 복사 & 도전장 보내기</span>
+      </button>
+      <button class="btn-action secondary" id="btnRetryQuiz" type="button">
+        <span>🔄 다른 영역 도전하기</span>
+      </button>
+    </div>
+
+    <div class="toast-popup" id="toastPopup" hidden>클립보드에 결과가 복사되었습니다! 친구에게 붙여넣어 보세요.</div>
+  </section>
+
 </main>
 
-<script src="config.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
