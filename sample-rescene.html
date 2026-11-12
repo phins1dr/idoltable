@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>리센느 서울 코스 — Idol Table (샘플)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f2eee6">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<meta name="description" content="리센느(RESCENE) 서울 반나절 코스 샘플 — 수집 12곳 중 근거 확인 5곳, 장소마다 근거 원문과 확인 날짜 표기. 2026-11-12 생성.">
+<style>
+:root{
+  --paper:#f2eee6; --card:#fbf9f4; --ink:#17150f; --muted:#6b6459; --line:#dcd4c4;
+  --line-soft:#e7e0d2; --brick:#a63b2a; --rose:#c2306a; --rose-bg:rgba(194,48,106,.07);
+  --green:#1f5d4a; --amber:#8a6a1e; --chip:#eae3d4;
+  --font:"Noto Sans CJK KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.55;
+  letter-spacing:-0.01em;background-image:radial-gradient(rgba(23,21,15,.035) 1px,transparent 1px);background-size:3px 3px}
+a{color:inherit}
+.wrap{max-width:430px;margin:0 auto;padding:0 18px 64px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px}
+.brand{font-weight:800;letter-spacing:-0.03em;font-size:17px;text-decoration:none}
+.brand span{color:var(--rose)}
+.tag{font-size:10px;letter-spacing:.14em;font-weight:700;border:1px solid var(--ink);padding:3px 7px;border-radius:2px;background:var(--ink);color:var(--paper)}
+.hero{padding:8px 0 20px;border-bottom:1px solid var(--line)}
+.eyebrow{margin:0 0 8px;font-size:11px;letter-spacing:.12em;color:var(--rose);font-weight:700}
+h1{margin:0;font-size:29px;line-height:1.16;letter-spacing:-0.045em;font-weight:800}
+h1 em{font-style:normal;color:var(--rose)}
+.lede{margin:12px 0 0;color:var(--muted);font-size:14px}
+.claim{margin:16px 0 0;padding:12px 14px;border-left:3px solid var(--rose);background:var(--rose-bg);font-size:13.5px;line-height:1.5}
+.claim b{font-weight:700}
+.metaline{margin:14px 0 0;font-size:11.5px;color:var(--muted)}
+.nb{white-space:nowrap}
+.gradeline{display:flex;gap:8px;margin:14px 0 0;flex-wrap:wrap}
+.gchip{font-size:11px;font-weight:700;padding:5px 9px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.5)}
+.gchip.v{color:var(--green)}
+.gchip.s{color:var(--amber)}
+.sample-note{margin:14px 0 0;padding:10px 12px;border:1px dashed var(--line);font-size:11.5px;color:var(--muted);background:rgba(255,255,255,.4)}
+.course-head{padding:22px 0 4px}
+.course h2{margin:2px 0 10px;font-size:24px;letter-spacing:-0.04em;line-height:1.2}
+.theme{margin:6px 0 12px;padding:13px 14px;background:var(--rose-bg);border:1px solid rgba(194,48,106,.24);border-radius:12px}
+.theme-tag{margin:0 0 3px;font-size:11.5px;font-weight:800;color:var(--rose)}
+.theme-headline{margin:0 0 5px;font-size:14.5px;font-weight:800;color:#6d1237;line-height:1.35;letter-spacing:-.02em}
+.theme-desc{margin:0;font-size:12.5px;color:#7a2745;line-height:1.45}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 6px}
+.stat{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:9px 11px;display:flex;flex-direction:column}
+.stat .n{font-size:22px;font-weight:800;letter-spacing:-0.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .n small{font-size:12px;font-weight:600;color:var(--muted)}
+.stat .k{font-size:11px;color:var(--muted)}
+.stat.single .n{color:var(--amber)}
+h3.sec{display:flex;align-items:baseline;gap:8px;margin:28px 0 4px;font-size:15px}
+h3.sec span{font-size:11px;color:var(--muted);font-weight:500}
+.hint{margin:0 0 12px;font-size:11.5px;color:var(--muted)}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline .stop,.timeline .leg{display:grid;grid-template-columns:44px 22px 1fr;align-items:start}
+.timeline .t{font-variant-numeric:tabular-nums;font-weight:700;font-size:12.5px;padding-top:3px;color:var(--muted)}
+.timeline .rail{position:relative;display:flex;justify-content:center;min-height:26px}
+.timeline .dot{width:19px;height:19px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:1}
+.timeline .stop:not(:last-child) .rail::after{content:"";position:absolute;top:19px;bottom:-2px;width:1px;background:var(--line)}
+.timeline .body{padding:0 0 16px 4px}
+.timeline .name{display:block;font-weight:700;font-size:15px;letter-spacing:-0.02em}
+.timeline .badge{display:inline-block;font-size:11px;font-weight:700;color:var(--rose);background:var(--rose-bg);padding:2px 7px;border-radius:4px;margin:3px 0 2px}
+.timeline .sub{display:block;font-size:11.5px;color:var(--muted);margin-top:1px}
+.timeline .leg .leg-rail{display:flex;justify-content:center}
+.timeline .leg .leg-line{width:1px;height:26px;background:repeating-linear-gradient(to bottom,var(--line) 0 3px,transparent 3px 6px)}
+.timeline .leg-body{font-size:11.5px;color:var(--muted);padding:4px 0 4px 4px}
+.leg-mode{font-weight:700;color:var(--ink)}
+.leg-dist{opacity:.8}
+.cards{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px;box-shadow:0 1px 0 rgba(23,21,15,.04)}
+.card-head{display:flex;align-items:flex-start;gap:10px}
+.stamp{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:2px}
+.titles{flex:1;min-width:0}
+.card h3{margin:0;font-size:16.5px;letter-spacing:-0.03em;line-height:1.25}
+.card .en{margin:1px 0 0;font-size:11px;color:var(--muted)}
+.callout{margin:11px 0 4px;padding:10px 12px;background:var(--rose-bg);border-left:3px solid var(--rose);border-radius:4px 10px 10px 4px}
+.callout-tag{display:inline-block;font-size:11px;font-weight:800;color:var(--rose)}
+.callout-desc{margin:3px 0 0;font-size:12.5px;font-weight:600;color:#6d1237;line-height:1.45}
+.grade{flex:0 0 auto;font-size:10px;font-weight:700;padding:3px 7px;border-radius:20px;border:1px solid currentColor;display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.grade i{width:5px;height:5px;border-radius:50%;background:currentColor;display:block}
+.grade.verified{color:var(--green)}
+.grade.single{color:var(--amber)}
+.grade.stale{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:11px 0 0}
+.chip{font-size:10.5px;background:var(--chip);border-radius:5px;padding:3px 7px;color:#413b31}
+.spec{display:grid;grid-template-columns:62px 1fr;gap:4px 8px;margin:11px 0 0;font-size:12px;border-top:1px solid var(--line-soft);padding-top:10px}
+.spec dt{color:var(--muted);font-size:11px}
+.spec dd{margin:0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.tiny{font-size:10.5px;color:var(--muted)}
+.unk{font-size:10.5px;color:var(--amber);font-weight:600}
+.evtype{font-weight:600}
+.lnk{text-decoration:none;border-bottom:1px solid var(--line);color:var(--brick);font-weight:600}
+.evlist{margin:8px 0 0;font-size:11px}
+.evlist summary{cursor:pointer;color:var(--muted);font-weight:700}
+.evlist ul{margin:6px 0 0;padding-left:16px}
+.evlist li+li{margin-top:6px}
+.note{margin:10px 0 0;font-size:11.5px;color:#4a4438;background:rgba(23,21,15,.035);border-radius:8px;padding:8px 10px;line-height:1.5}
+.maps{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:11px}
+.mapbtn{flex:1 1 auto;text-align:center;font-size:12px;font-weight:700;text-decoration:none;border:1px solid var(--ink);border-radius:8px;padding:8px 10px}
+.mapbtn:first-child{background:var(--ink);color:var(--paper)}
+.coord{flex:1 0 100%;font-size:9.5px;color:var(--muted);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.rules{margin:18px 0 0;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.45)}
+.rules summary{cursor:pointer;padding:12px 14px;font-size:12.5px;font-weight:700;display:flex;justify-content:space-between;gap:8px}
+.cnt{font-weight:600;color:var(--muted);font-size:11px}
+.rules table{width:100%;border-collapse:collapse;font-size:11.5px}
+.rules th{text-align:left;color:var(--muted);width:26px;padding:6px 0 6px 14px;vertical-align:top}
+.rules td{padding:6px 14px 6px 6px;border-bottom:1px solid var(--line-soft)}
+.rules td:last-child{width:56px;text-align:right;padding-right:14px}
+.st{font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;white-space:nowrap}
+.st.ok{color:var(--green);background:rgba(31,93,74,.1)}
+.st.relax{color:var(--brick);background:rgba(166,59,42,.1)}
+.exceptions{margin:4px 14px 14px;padding:10px 12px;border-radius:8px;background:rgba(166,59,42,.055);border:1px dashed rgba(166,59,42,.35)}
+.ex-h{margin:0 0 6px;font-size:10.5px;font-weight:800;color:var(--brick);letter-spacing:.04em}
+.exceptions ul{margin:0;padding-left:14px;font-size:11px;line-height:1.5}
+.exceptions li+li{margin-top:6px}
+.why{color:var(--muted)}
+.section{margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.section h2{margin:0 0 4px;font-size:19px;letter-spacing:-.03em}
+.section .sub{margin:0 0 14px;font-size:12.5px;color:var(--muted)}
+.xcards{display:flex;flex-direction:column;gap:10px}
+.xlist{margin:8px 0 0;padding-left:15px;font-size:12px;line-height:1.5}
+.xlist li+li{margin-top:7px}
+.xlist b{font-weight:700}
+.xcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 13px}
+.xhead{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.xcard h3{margin:0;font-size:14.5px;letter-spacing:-.02em}
+.xwhy{margin:7px 0 0;font-size:11.5px;color:var(--brick);line-height:1.5}
+.xpoint{margin:6px 0 0;font-size:12px;color:#3d382e;line-height:1.5}
+.xtiny{margin:8px 0 0;font-size:10.5px;color:var(--muted)}
+.verdict{margin:0;padding:14px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.5);font-size:12.5px;line-height:1.6}
+.verdict .vtitle{display:block;margin-bottom:7px;font-size:13px;font-weight:800}
+.verdict b{font-weight:800}
+.verdict ul{margin:8px 0 0;padding-left:16px}
+.verdict li+li{margin-top:5px}
+footer{margin-top:34px;border-top:1px solid var(--line);padding-top:18px;font-size:11.5px;color:var(--muted)}
+footer h4{margin:0 0 6px;font-size:11px;letter-spacing:.1em;color:var(--ink)}
+footer ol,footer ul{margin:0 0 14px;padding-left:16px;line-height:1.55}
+footer li+li{margin-top:4px}
+.legal{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:10.5px;line-height:1.55}
+@media (min-width:520px){
+  .wrap{max-width:680px;padding-bottom:80px}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .cards{display:grid;grid-template-columns:1fr 1fr}
+  .xcards{display:grid;grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a class="brand" href="#">Idol<span>Table</span></a>
+    <span class="tag">샘플 · 한국어</span>
+  </div>
+
+  <section class="hero">
+    <p class="eyebrow">RESCENE · Seoul · 근거로 확인하는 K-pop 서울 코스</p>
+    <h1>리센느 서울 <em>반나절</em></h1>
+    <p class="lede">최애가 실제로 간 곳, 방송에 나온 곳만 근거와 날짜를 붙여 실었습니다.</p>
+    <p class="claim">우리는 어디가 좋은지 말하지 않습니다.<br><b>어디서 확인된 곳인지 보여줍니다.</b></p>
+    <div class="gradeline">
+      <span class="gchip v">근거 확인 5곳</span>
+      <span class="gchip s">단일 출처 7곳</span>
+      <span class="gchip">수집 12곳 중 코스 3곳</span>
+    </div>
+    <p class="metaline">생성 2026-11-12 · 규칙 route_rule_v0.3 (리센느 적용판) · 요일 가정 금요일<br>
+      이동: 지도 API 실측 경로 — 도보는 Kakao Map, 대중교통은 Google Maps. 직선거리 계산 아님</p>
+    <p class="sample-note">이 페이지는 손으로 고른 목록이 아닙니다. <b>build_course.py</b>가 수집한 12곳에서
+      규칙 v0.3(근거 2건 이상 일치, 영업시간 확인, 이동 도보 15분·대중교통 20분)을 적용해 뽑은 결과입니다.
+      조건을 못 넘은 9곳은 아래에 사유와 함께 그대로 적었습니다.</p>
+  </section>
+
+    <section class="course">
+      <header class="course-head">
+        <p class="eyebrow">Half day · 13:00–16:18 · 3곳</p>
+        <h2>리센느 강남·논현 반나절</h2>
+        <div class="theme">
+          <p class="theme-tag">왜 리센느 코스인가요?</p>
+          <p class="theme-headline">원이 단골 고깃집에서 갸루 촬영지 카페까지, 강남 안에서 끝나는 반나절</p>
+          <p class="theme-desc">리센느가 실제로 밥을 먹고 카메라를 세운 곳 세 곳을 잇는 반나절입니다. 이동은 도보 16분과 지하철 17분이 전부이고, 세 곳 모두 강남·서초 안에 있습니다.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><span class="n">2</span><span class="k">근거 확인</span></div>
+          <div class="stat single"><span class="n">1</span><span class="k">단일 출처</span></div>
+          <div class="stat wide"><span class="n">3<small>h</small> 18<small>m</small></span><span class="k">총 소요</span></div>
+          <div class="stat wide"><span class="n">33<small>분</small></span><span class="k">이동 합계</span></div>
+        </div>
+      </header>
+
+      <h3 class="sec">순서 <span>동선과 이동</span></h3>
+      <p class="hint">이동 시간은 지도 API 실측 경로입니다(도보 Kakao Map, 대중교통 Google Maps). 직선거리 계산이 아닙니다.</p>
+      <ol class="timeline">
+        <li class="stop">
+          <span class="t">13:00</span>
+          <span class="rail"><span class="dot">1</span></span>
+          <span class="body">
+            <span class="name">강화통통생고기 논현점</span>
+            <span class="badge">원이 혼밥 + 전참시 회식</span>
+            <span class="sub">식당 · 강남 · 70분 체류</span>
+          </span>
+        </li>
+        <li class="leg">
+          <span class="leg-time"></span>
+          <span class="leg-rail"><span class="leg-line"></span></span>
+          <span class="leg-body"><span class="leg-mode">도보</span> 16분
+            <span class="leg-dist">· 1.1km</span></span>
+        </li>
+        <li class="stop">
+          <span class="t">14:26</span>
+          <span class="rail"><span class="dot">2</span></span>
+          <span class="body">
+            <span class="name">천장지구</span>
+            <span class="badge">원이·미나미 촬영지</span>
+            <span class="sub">카페 · 강남 · 55분 체류</span>
+          </span>
+        </li>
+        <li class="leg">
+          <span class="leg-time"></span>
+          <span class="leg-rail"><span class="leg-line"></span></span>
+          <span class="leg-body"><span class="leg-mode">대중교통</span> 17분
+            <span class="leg-dist">· 4.4km</span></span>
+        </li>
+        <li class="stop">
+          <span class="t">15:38</span>
+          <span class="rail"><span class="dot">3</span></span>
+          <span class="body">
+            <span class="name">올리브영 강남타운</span>
+            <span class="badge">미나미 &quot;2주에 한 번&quot;</span>
+            <span class="sub">쇼핑 · 서초 · 40분 체류</span>
+          </span>
+        </li>
+      </ol>
+
+      <h3 class="sec">장소 <span>근거와 날짜</span></h3>
+      <div class="cards">
+      <article class="card" id="rescene-ganghwatongtong">
+        <div class="card-head">
+          <span class="stamp">1</span>
+          <div class="titles">
+            <h3>강화통통생고기 논현점</h3>
+            <p class="en">Ganghwatongtong Saenggogi, Nonhyeon</p>
+          </div>
+          <span class="grade verified"><i></i>근거 확인</span>
+        </div>
+        <div class="callout">
+          <span class="callout-tag">🩷 리센느 포인트</span>
+          <p class="callout-desc">원이가 데뷔 초 혼자 찾아 삼겹살 1인분과 껍데기를 먹은 집. 사장이 &#x27;딸 생각이 나서&#x27; 1인분을 받아준 게 인연이 됐고, 2026년 8월 8일 &#x27;전지적 참견 시점&#x27; 410회에서 &#x27;프리티걸&#x27; 활동 마무리 회식 장소로 나왔습니다.</p>
+        </div>
+        <div class="chips">
+          <span class="chip">식당</span>
+          <span class="chip">원이</span>
+          <span class="chip">13:00 도착</span>
+        </div>
+        <dl class="spec">
+          <dt>영업시간</dt><dd>월-금 11:30-14:30 / 월-금 16:30-23:30 / 토-일 15:00-23:30</dd>
+          <dt>확인</dt><dd>Google Maps 영업시간(다음 7일) 2026-11-12 조회</dd>
+          <dt>근거</dt><dd>최애 방문 · 2026-08-08<br><a class="lnk" href="evidence/rescene-ganghwatongtong/2026-11-12_1.png" target="_blank" rel="noopener">캡처1</a> <a class="lnk" href="evidence/rescene-ganghwatongtong/2026-11-12_2.png" target="_blank" rel="noopener">캡처2</a> <a class="lnk" href="evidence/rescene-ganghwatongtong/2026-11-12_3.png" target="_blank" rel="noopener">캡처3</a></dd>
+        </dl>
+        <details class="evlist"><summary>근거 원문 3건</summary><ul><li><span class="evtype">bnt뉴스 · 전참시 410회 단골 고깃집(2026-08-09)</span><br><a class="lnk" href="https://www.bntnews.co.kr/article/view/bnt202608090015" target="_blank" rel="noopener">https://www.bntnews.co.kr/article/view/bnt202608090015</a></li><li><span class="evtype">머니투데이 · 원이 혼밥과 사장님 인연(2026-07-10)</span><br><a class="lnk" href="https://www.mt.co.kr/entertainment/2026/07/10/2026071016225771417" target="_blank" rel="noopener">https://www.mt.co.kr/entertainment/2026/07/10/2026071016225771417</a></li><li><span class="evtype">상호·주소 확인용 팬 정리 글(2026-08-09)</span><br><a class="lnk" href="https://rjfdjtj.tistory.com/1145" target="_blank" rel="noopener">https://rjfdjtj.tistory.com/1145</a></li></ul></details>
+        <p class="note">고기 메뉴는 보통 2인분부터인데, 원이가 1인분+껍데기 1인분을 주문했을 때 사장이 예외로 받아준 것이 인연의 시작이라고 보도됐습니다. 회식은 매장 안쪽 단체석. 14:30~16:30 브레이크 있음.</p>
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EA%B0%95%ED%99%94%ED%86%B5%ED%86%B5%EC%83%9D%EA%B3%A0%EA%B8%B0%20%EB%85%BC%ED%98%84%EC%A0%90" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.5190402,127.0294246" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.51904, 127.02942</span>
+        </div>
+      </article>
+      <article class="card" id="rescene-cheonjangjigu">
+        <div class="card-head">
+          <span class="stamp">2</span>
+          <div class="titles">
+            <h3>천장지구</h3>
+            <p class="en">Cheonjangjigu</p>
+          </div>
+          <span class="grade verified"><i></i>근거 확인</span>
+        </div>
+        <div class="callout">
+          <span class="callout-tag">🩷 리센느 포인트</span>
+          <p class="callout-desc">원이와 미나미가 &#x27;갸루의 자세&#x27; 콘텐츠를 찍은 곳으로 팬 후기 2건이 같은 곳을 가리킵니다. 이후 리브와 메이도 다녀가 매장에 멤버 사인이 남아 있습니다.</p>
+        </div>
+        <div class="chips">
+          <span class="chip">카페</span>
+          <span class="chip">원이·미나미</span>
+          <span class="chip">14:26 도착</span>
+        </div>
+        <dl class="spec">
+          <dt>영업시간</dt><dd>월-금 11:30-21:30 / 토 12:00-21:00 / 일 12:00-20:30</dd>
+          <dt>확인</dt><dd>Google Maps 영업시간 + 한국관광공사 공개 데이터(2026-10-18 수집본) 대조</dd>
+          <dt>근거</dt><dd>최애 방문 · 2026-04<br><a class="lnk" href="evidence/rescene-cheonjangjigu/2026-11-12_1.png" target="_blank" rel="noopener">캡처1</a> <a class="lnk" href="evidence/rescene-cheonjangjigu/2026-11-12_2.png" target="_blank" rel="noopener">캡처2</a> <a class="lnk" href="evidence/rescene-cheonjangjigu/2026-11-12_3.png" target="_blank" rel="noopener">캡처3</a></dd>
+        </dl>
+        <details class="evlist"><summary>근거 원문 4건</summary><ul><li><span class="evtype">원이 채널 &#x27;갸루의 자세에 대해서 배워보았습니다&#x27; (유튜브, 577만 회·7개월 전 표기)</span><br><a class="lnk" href="https://www.youtube.com/watch?v=heifaIjlSUc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=heifaIjlSUc</a></li><li><span class="evtype">팬 후기 ① · 영상 속 카페 방문, 멤버 사인(2026-07-01)</span><br><a class="lnk" href="https://m.blog.naver.com/baba101203/224330943589" target="_blank" rel="noopener">https://m.blog.naver.com/baba101203/224330943589</a></li><li><span class="evtype">팬 후기 ② · &#x27;리센느도 다녀간&#x27; 카페 소개</span><br><a class="lnk" href="https://m.blog.naver.com/mint8864/224379639204" target="_blank" rel="noopener">https://m.blog.naver.com/mint8864/224379639204</a></li><li><span class="evtype">한국관광공사 공개 데이터 · 영업시간</span><br><a class="lnk" href="https://www.ktriptips.com/kor/food/4057278" target="_blank" rel="noopener">https://www.ktriptips.com/kor/food/4057278</a></li></ul></details>
+        <p class="note">2층 카페로 올라가는 건물 입구가 영상에 나온 촬영 스팟입니다. 매장에 리센느 멤버 사인이 있습니다. 유튜브 영상은 로그인 없이는 재생 화면이 가려져, 캡처에는 영상 제목·채널·조회수까지만 남았습니다. 홍콩 누아르 콘셉트, 대표 메뉴는 시멘트 커피·홍콩 와플.</p>
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EC%B2%9C%EC%9E%A5%EC%A7%80%EA%B5%AC" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.5221261,127.038334" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.52213, 127.03833</span>
+        </div>
+      </article>
+      <article class="card" id="rescene-oliveyoung-gangnam">
+        <div class="card-head">
+          <span class="stamp">3</span>
+          <div class="titles">
+            <h3>올리브영 강남타운</h3>
+            <p class="en">Olive Young Gangnam Town</p>
+          </div>
+          <span class="grade single"><i></i>단일 출처</span>
+        </div>
+        <div class="callout">
+          <span class="callout-tag">🩷 리센느 포인트</span>
+          <p class="callout-desc">미나미가 KBS WORLD &#x27;Got the Spot in Gangnam&#x27;(2025-08-23)에서 &quot;여기는 2주에 한 번은 와요&quot;라고 말한 매장. 방송 촬영 자체가 이 매장에서 이뤄졌습니다.</p>
+        </div>
+        <div class="chips">
+          <span class="chip">쇼핑</span>
+          <span class="chip">미나미</span>
+          <span class="chip">15:38 도착</span>
+        </div>
+        <dl class="spec">
+          <dt>영업시간</dt><dd>월-일 10:00-22:30</dd>
+          <dt>확인</dt><dd>Google Maps 영업시간(다음 7일) 2026-11-12 조회</dd>
+          <dt>근거</dt><dd>최애 방문 · 2025-08-23<br><a class="lnk" href="evidence/rescene-oliveyoung-gangnam/2026-11-12_1.png" target="_blank" rel="noopener">캡처1</a></dd>
+        </dl>
+        <details class="evlist"><summary>근거 원문 1건</summary><ul><li><span class="evtype">KBS WORLD TV &#x27;Got the Spot in Gangnam&#x27; EP01 · 미나미 출연(2025-08-23)</span><br><a class="lnk" href="https://www.youtube.com/watch?v=pymJqRX1fN8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=pymJqRX1fN8</a></li></ul></details>
+        <p class="note">방송에서 미나미가 &#x27;2주에 한 번은 온다&#x27;고 말한 매장. 화면상 강남역 교차로의 지하 1층~지상 여러 층 매장으로, 지점명은 방송 화면을 근거로 한 추정입니다(방송이 지점명을 자막으로 밝히지는 않음).</p>
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%20%EA%B0%95%EB%82%A8%ED%83%80%EC%9A%B4" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.4985151,127.026774" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.49852, 127.02677</span>
+        </div>
+      </article>
+      </div>
+
+      <details class="rules" open>
+        <summary>이 코스가 나온 규칙 점검 <span class="cnt">4/5 준수</span></summary>
+        <table><tr><th>R1</th><td>이동 상한(도보 15분·대중교통 20분, 실측)<br><span class="why">가장 긴 구간 — 도보 16분, 대중교통 17분</span></td><td><span class="st relax">완화</span></td></tr>
+<tr><th>R2</th><td>도착 시각이 영업시간 안<br><span class="why">모든 도착·출발 시각이 확인된 영업시간 안</span></td><td><span class="st ok">준수</span></td></tr>
+<tr><th>R3</th><td>활동 태그 2~3개<br><span class="why">3개 — 쇼핑, 식당, 카페</span></td><td><span class="st ok">준수</span></td></tr>
+<tr><th>R4</th><td>장소 3~5곳·식당·카페 포함<br><span class="why">3곳</span></td><td><span class="st ok">준수</span></td></tr>
+<tr><th>R6</th><td>검증 우선·단일 출처 상한 1곳<br><span class="why">근거 확인 2곳 · 단일 출처 1곳</span></td><td><span class="st ok">준수</span></td></tr></table>
+        <div class="exceptions"><p class="ex-h">규칙에서 벗어난 지점 — 왜</p><ul><li><b>R1 이동 상한 — 도보 15분</b> — 강화통통생고기 논현점→천장지구 실측 도보 16분 (1.1km)<br><span class="why">지도 API 실측 보행 경로가 상한을 1분 넘습니다(1.1km·도보 16분, 직선거리는 0.88km). 도산공원 사거리 횡단과 골목 굴곡 때문입니다. 대중교통으로 잡으면 0.9km짜리 구간에 6분이 나오는데 실제로는 걷는 구간이라 도보로 적었습니다.</span></li></ul></div>
+      </details>
+    </section>
+
+  <section class="section">
+    <h2>코스에 넣지 않은 9곳</h2>
+    <p class="sub">근거가 약하거나, 영업시간을 확인하지 못했거나, 팬이 가도 되는 곳이 아니어서 뺐습니다. 뺀 이유를 지우지 않습니다.</p>
+    <div class="xcards">
+      <article class="xcard">
+        <div class="xhead"><h3>리센느 제나·미나미 생일카페 (홍대 4곳)</h3>
+          <span class="grade single"><i></i>단일 출처</span></div>
+        <p class="xwhy">근거가 1건뿐입니다(Re:Mining 등록 정보). 주최 계정 링크는 있지만 X가 비로그인 화면을 막아 원문 캡처를 남기지 못했습니다 — ‘근거 약함’으로 표시하고 코스에서 뺐습니다.</p>
+        <ul class="xlist"><li><b>카페라래</b><br><span class="xtiny">서울특별시 마포구 와우산로29마길 7 1층 102호 · 2026-11-27 ~ 2026-11-29 11:00-19:00</span></li><li><b>카페 몽글</b><br><span class="xtiny">서울특별시 마포구 와우산로29라길 21 2층 · 2026-11-26 ~ 2026-11-29 11:00-19:00</span></li><li><b>카페 멜랑</b><br><span class="xtiny">서울특별시 마포구 와우산로29라길 11 지층 101호 · 2026-11-27 ~ 2026-11-29 11:30-18:30</span></li><li><b>델루나 카페&amp;갤러리</b><br><span class="xtiny">서울특별시 마포구 와우산로21길 26 3층 · 2026-11-27 ~ 2026-11-29 (29일 11:00-18:00)</span></li><li><span class="xtiny">등록 정보 원문: <a class="lnk" href="https://www.remine.ing/cafe/4137ff215ca1816188c1edbbec602c4e" target="_blank" rel="noopener">https://www.remine.ing/cafe/4137ff215ca1816188c1edbbec602c4e</a></span></li></ul>
+      </article>
+      <article class="xcard">
+        <div class="xhead"><h3>드레스덴 그린</h3>
+          <span class="grade verified"><i></i>근거 확인</span></div>
+        <p class="xwhy">근거는 확인됐지만 1인 12만~27만원대 코스라 &#x27;반나절 동선&#x27;에 넣기엔 부담이 큽니다. 카드로만 남겼습니다.</p>
+        <p class="xpoint">원이가 &#x27;인생 첫 파인다이닝&#x27; 콘텐츠를 찍은 곳. 셰프가 직접 메뉴를 설명하는 장면이 영상에 나옵니다.</p>
+        <p class="xtiny">서울특별시 강남구 도산대로 420 청담스퀘어 B동 2층 · <a class="lnk" href="https://www.youtube.com/watch?v=inaTPJiZ734" target="_blank" rel="noopener">근거 원문</a> <a class="lnk" href="evidence/rescene-dresdengreen/2026-11-12_1.png" target="_blank" rel="noopener">캡처1</a> <a class="lnk" href="evidence/rescene-dresdengreen/2026-11-12_2.png" target="_blank" rel="noopener">캡처2</a></p>
+      </article>
+      <article class="xcard">
+        <div class="xhead"><h3>더뮤즈엔터테인먼트 (신사동 사옥)</h3>
+          <span class="grade verified"><i></i>근거 확인</span></div>
+        <p class="xwhy">소속사가 2026-07-02 공지에서 사옥을 팬레터·서포트 전달 장소가 아니라고 밝혔습니다. 방문 코스에 넣지 않았습니다.</p>
+        <p class="xpoint">리센느의 소속사. 2026년 7월 논현동에서 신사동으로 옮겼습니다. 소속사가 사옥을 팬 방문·전달 장소로 안내하지 않아 동선에서 뺐습니다.</p>
+        <p class="xtiny">서울특별시 강남구 논현로151길 30-8 (신사동) · <a class="lnk" href="https://www.nc.press/news/articleView.html?idxno=620771" target="_blank" rel="noopener">근거 원문</a> <a class="lnk" href="evidence/rescene-muze-hq/2026-11-12_1.png" target="_blank" rel="noopener">캡처1</a> <a class="lnk" href="evidence/rescene-muze-hq/2026-11-12_2.png" target="_blank" rel="noopener">캡처2</a></p>
+      </article>
+      <article class="xcard">
+        <div class="xhead"><h3>남파랑국밥 상암점 (추정)</h3>
+          <span class="grade single"><i></i>단일 출처</span></div>
+        <p class="xwhy">상호가 기사에 없어 메뉴 대조로 추정한 곳이고(근거 1건), 현재 영업시간도 확인하지 못했습니다.</p>
+        <p class="xpoint">리센느가 음악방송 1위 뒤 팬들에게 국밥 쿠폰을 돌린 &#x27;역조공&#x27; 식당. 다만 기사에 상호가 없어 남파랑국밥 상암점으로 추정만 했습니다.</p>
+        <p class="xtiny">서울특별시 마포구 월드컵북로44길 81 1층 · <a class="lnk" href="https://www.topstarnews.net/news/articleView.html?idxno=16155117" target="_blank" rel="noopener">근거 원문</a> <a class="lnk" href="evidence/rescene-namparang/2026-11-12_1.png" target="_blank" rel="noopener">캡처1</a> <a class="lnk" href="evidence/rescene-namparang/2026-11-12_2.png" target="_blank" rel="noopener">캡처2</a></p>
+      </article>
+      <article class="xcard">
+        <div class="xhead"><h3>롯데월드타워 (시그니엘 서울 촬영지)</h3>
+          <span class="grade verified"><i></i>근거 확인</span></div>
+        <p class="xwhy">촬영지 자체는 호텔 객실·라운지여서 팬이 같은 공간에 갈 수 없고, 강남 코스에서 대중교통 27분이라 동선 제약(20분)도 넘습니다.</p>
+        <p class="xpoint">&#x27;원이 근황&#x27; 상황극이 시그니엘 서울에서 찍혔습니다. 원이가 99층에서 서울을 내려다보는 장면이 화제가 됐습니다.</p>
+        <p class="xtiny">서울특별시 송파구 올림픽로 300 · <a class="lnk" href="https://www.tenasia.co.kr/article/2026082909454" target="_blank" rel="noopener">근거 원문</a> <a class="lnk" href="evidence/rescene-signiel/2026-11-12_1.png" target="_blank" rel="noopener">캡처1</a> <a class="lnk" href="evidence/rescene-signiel/2026-11-12_2.png" target="_blank" rel="noopener">캡처2</a></p>
+      </article>
+      <article class="xcard">
+        <div class="xhead"><h3>스튜디오 이태원</h3>
+          <span class="grade single"><i></i>단일 출처</span></div>
+        <p class="xwhy">출처 1건(팬 지도 등록)뿐이고, 촬영 스튜디오라 일반 방문 대상이 아닙니다.</p>
+        <p class="xpoint">리센느 광고 촬영지로 팬 지도에 등록된 스튜디오. 원출처 확인이 안 돼 카드로만 남겼습니다.</p>
+        <p class="xtiny">서울특별시 용산구 이태원로27길 41 · <a class="lnk" href="https://dukplace.com/ko/spot/group/158/3894" target="_blank" rel="noopener">근거 원문</a> <a class="lnk" href="evidence/rescene-studio-itaewon/2026-11-12_1.png" target="_blank" rel="noopener">캡처1</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>이 샘플의 약점</h2>
+    <div class="verdict">
+      <span class="vtitle">팬이 실제로 갈 만한가 — 만든 사람의 판단</span>
+      세 곳 중 두 곳(강화통통생고기·천장지구)은 “리센느가 실제로 왔다”가 원문으로 남아 있어 팬이 가면 확인할 것이 있습니다.
+      세 번째(올리브영 강남타운)는 미나미가 방송에서 한 말이 근거지만 <b>어느 지점인지 방송이 이름을 부르지 않아</b> 지점 특정이 추정입니다.
+      <ul>
+        <li>리센느의 가장 센 장소(거제 덕포 포차, 매미성)는 <b>서울이 아니라서</b> 이 페이지에 못 들어옵니다. 서울만으로는 재료가 얇습니다.</li>
+        <li>홍대 생일카페 12곳은 지금(11/27~29) 가장 실제적인 볼거리인데, 근거가 주최 계정 1건뿐이라 규칙에 따라 코스에서 빠졌습니다.</li>
+        <li>강화통통→천장지구 구간은 실측 도보 16분으로 상한(15분)을 1분 넘습니다. 줄이려면 다른 카페를 써야 하는데, 그 카페엔 근거가 없습니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <h4>데이터 출처와 한계</h4>
+    <ol>
+      <li>장소·좌표·영업시간은 2026-11-12 수집분입니다. 영업시간은 방문 전에 다시 확인해야 합니다.</li>
+      <li>근거 등급은 원문 확인 결과입니다. 수집 12곳 중 근거 확인 5곳, 단일 출처 7곳.
+        단일 출처는 <b>출처가 하나</b>라는 뜻이며 확인이 끝났다는 뜻이 아닙니다.</li>
+      <li>이동 시간은 지도 API 실측값입니다(도보 Kakao Map / 대중교통 Google Maps). API가 보행 경로를 주지 않은 1km 이내 구간만
+        직선거리로 계산해 ‘추정’으로 표시했습니다.</li>
+      <li>영업 여부(폐업·휴업)는 행정안전부 인허가 API 인증키가 없어 조회하지 못했습니다. 대신 지도 API의 영업 상태와 최종 확인일을 적었습니다.</li>
+      <li>사진·영상·로고·앨범 재킷은 한 장도 싣지 않았습니다. 근거는 원문 링크와 우리가 찍은 화면 캡처(<code>evidence/</code>)로만 둡니다.</li>
+      <li>팬레터 전달 주소, 멤버 개인 계정, 숙소 위치는 싣지 않습니다.</li>
+    </ol>
+    <div class="legal">
+      Not affiliated with or endorsed by any agency or artist. Facts are cited from public reports.<br>
+      이 페이지는 더뮤즈엔터테인먼트·리센느와 아무 제휴 관계가 없습니다. 사실만 공개 출처에서 인용했습니다.<br>
+      소속사·아티스트 측에서 삭제를 요청하면 해당 카드를 즉시 내립니다 — 삭제 요청 창구는 발행 전에 마련합니다(현재 준비 중).
+    </div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+Idol Table — end-to-end smoke test
+server: http://127.0.0.1:35373
+
+Home
+  ok   home hero headline renders
+  ok   dark game card is on the first screen
+  ok   daily-challenge kicker
+  ok   daily-set button present
+  ok   daily button counts the set
+  ok   ranking card present
+  ok   three entry tiles
+  ok   folded sources panel present
+  body font 17px, lede 17px
+  ok   body font size >= 17px
+  ok   no horizontal overflow on home
+  ok   all tap targets >= 44px on home
+
+Idol list -> idol -> place
+  ok   launch lineup has 8 artists
+  ok   extra artists with reports listed
+  ok   SEVENTEEN page opens
+  ok   report count shown on idol page
+  ok   reported place listed on idol page
+  ok   cross links to the same area
+  ok   place page opens
+  ok   ordered dishes shown in English
+  ok   unverified opening hours stated
+  ok   three one-tap copy buttons (KO / EN / coords)
+  ok   Google and Naver map links
+  ok   copy button puts the Korean address on the clipboard
+  ok   coordinate copy matches the data
+
+Coming-soon state
+  ok   artist without data shows the coming-soon screen
+  ok   coming-soon explains why it is empty
+  ok   no invented place text on the empty page
+  ok   place page labels the source's wording for the menu
+  ok   passing mentions are labelled, not dressed up as orders
+
+Area -> route
+  ok   three areas with published places
+  ok   area page opens
+  ok   route has two stops
+  ok   walk estimate shown
+  ok   walk distance includes the road factor (2.2 km)
+  ok   route copy button present
+  ok   copied route text carries both addresses
+
+Quiz: daily set answered correctly
+  ok   daily set has 10 questions
+  ok   answered all 10 questions
+  ok   perfect score rendered
+  ok   earned badges are shown on the result page, not in a modal
+  ok   no modal blocks the result screen
+  ok   daily set marked done for the day
+  ok   streak started at 1 day
+  ok   progress stored for 10 questions
+  ok   perfect-score badge earned
+
+Daily set stability
+  ok   home recognises today's set as done
+  ok   streak appears on the home card
+  ok   daily ids stay identical across reloads
+
+Wrong answer path and resume
+  ok   wrong answer shows the miss state
+  ok   wrong answer reveals the right option
+  ok   resume button appears after leaving mid-round
+  ok   resume continues at question 2
+
+Language toggle
+  ok   Korean toggle renders Korean home
+  ok   html lang switches to ko
+  ok   toggle returns to English
+
+Layout checks on every screen
+  ok   no overflow and no small tap target found across 11 screens at 390px and 320px
+  ok   place body text >= 17px
+
+Console / network
+  ok   no page errors
+  ok   no console errors
+  ok   no failed requests
+
+All end-to-end checks passed.

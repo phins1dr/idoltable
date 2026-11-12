@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-11-12",
+    "note": "A route is an ordering of published places that share a district. Distances are computed in the browser from the stored coordinates (straight line, then a 1.25 road factor at 4.8 km/h) and labelled as estimates. No map image, no routing API."
+  },
+  "routes": [
+    {
+      "id": "apgujeong-cheongdam",
+      "status": "published",
+      "title_en": "Apgujeong to Cheongdam: two reported tables in one afternoon",
+      "title_ko": "압구정 → 청담: 반나절에 두 곳",
+      "intro_en": "Both places sit in Gangnam-gu and are close enough to walk between. Start with the Chinese dining room in Apgujeong, then cross to Cheongdam for the barbecue stop.",
+      "intro_ko": "두 곳 모두 강남구에 있고 걸어서 옮길 수 있는 거리입니다. 압구정의 차이니스 다이닝에서 시작해 청담의 고깃집으로 넘어가는 순서입니다.",
+      "area_ids": [
+        "gangnam-apgujeong",
+        "gangnam-cheongdam"
+      ],
+      "stops": [
+        {
+          "order": 1,
+          "place_id": "mutan-apgujeong",
+          "note_en": "Lunch. This is the three-dish order the reports describe; the jjajangmyeon is the heaviest of them, so share it last.",
+          "note_ko": "점심. 보도에 나온 세 가지 주문 조합입니다. 자장면이 가장 무거우니 나눠 먹는다면 마지막에 드세요."
+        },
+        {
+          "order": 2,
+          "place_id": "yeongcheon-cheongdam",
+          "note_en": "Dinner or a late grill stop. Yukhoe, yukhoe bibimbap and yuksashimi are the menu the NCT members named.",
+          "note_ko": "저녁 또는 늦은 고기 자리. 도영·해찬이 꼽은 육회, 육회비빔밥, 육사시미가 기준 메뉴입니다."
+        }
+      ],
+      "person_ids": [
+        "seventeen",
+        "nct",
+        "bts",
+        "straykids",
+        "cha-eunwoo"
+      ]
+    }
+  ]
+}

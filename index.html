@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Idol Table</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f7f9">
+<meta name="description" content="Where K-pop idols ate and what they ordered, from published reports — plus a daily ten-question quiz you can play without an account.">
+<meta name="color-scheme" content="light">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="loadError" class="load-error" hidden></div>
+<noscript><p class="load-error">This site needs JavaScript. All content is plain JSON loaded by the page.</p></noscript>
+
+<main id="app">
+
+  <header class="topbar">
+    <a class="brand" id="brand" href="#/">Idol Table</a>
+    <span class="topbar-right">
+      <a class="top-link" id="navIdols" href="#/idols"></a>
+      <a class="top-link" id="navQuiz" href="#/quiz"></a>
+      <button class="lang-btn" id="langToggle" type="button" aria-label="Switch language">한국어</button>
+    </span>
+  </header>
+
+  <!-- Featured Course Samples Banner -->
+  <div style="background:#f4eee6; padding:12px 16px; margin:8px 0 16px; border-radius:8px; border:1px solid #dcd4c4; font-size:13px; line-height:1.6;">
+    <strong style="display:block; color:#a63b2a; margin-bottom:4px; font-size:14px;">📍 근거 기반 K-pop 성지순례 코스 시안</strong>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;">
+      <a href="sample-course-bts.html" style="background:#fff; color:#5b2e91; padding:6px 12px; border-radius:6px; text-decoration:none; font-weight:700; border:1px solid #d1c4e9; box-shadow:0 1px 2px rgba(0,0,0,0.05);">💜 BTS 용산 코스</a>
+      <a href="sample-seventeen-seongsu.html" style="background:#fff; color:#1f5d4a; padding:6px 12px; border-radius:6px; text-decoration:none; font-weight:700; border:1px solid #b2dfdb; box-shadow:0 1px 2px rgba(0,0,0,0.05);">💎 세븐틴 성수 코스</a>
+      <a href="sample-rescene.html" style="background:#fff; color:#a63b2a; padding:6px 12px; border-radius:6px; text-decoration:none; font-weight:700; border:1px solid #ffccbc; box-shadow:0 1px 2px rgba(0,0,0,0.05);">🌸 리센느 강남 코스</a>
+    </div>
+  </div>
+
+  <!-- Home -->
+  <section class="view" id="view-home" aria-labelledby="homeTitle" hidden></section>
+  <!-- Idol index -->
+  <section class="view" id="view-idols" hidden></section>
+  <!-- Idol detail -->
+  <section class="view" id="view-idol" hidden></section>
+  <!-- Area index -->
+  <section class="view" id="view-areas" hidden></section>
+  <!-- Area detail -->
+  <section class="view" id="view-area" hidden></section>
+  <!-- Place detail -->
+  <section class="view" id="view-place" hidden></section>
+  <!-- Route index -->
+  <section class="view" id="view-routes" hidden></section>
+  <!-- Route detail -->
+  <section class="view" id="view-route" hidden></section>
+  <!-- Quiz -->
+  <section class="view" id="view-quiz" hidden></section>
+  <!-- Result -->
+  <section class="view" id="view-result" hidden></section>
+  <!-- My record, badges, ranking code -->
+  <section class="view" id="view-me" hidden></section>
+
+  <!-- ===== Ad slot (placeholder only, no code): a display ad unit goes here after launch. ===== -->
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+
+  <footer class="site-foot" id="siteFoot"></footer>
+</main>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

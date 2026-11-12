@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-11-12",
+    "note": "Only people with at least one publicly reported, linked place are marked published. Everyone else stays coming-soon: no invented places, menus, or dates."
+  },
+  "people": [
+    {
+      "id": "bts",
+      "order": 1,
+      "launch": true,
+      "kind": "group",
+      "name_en": "BTS",
+      "name_ko": "방탄소년단",
+      "status": "published",
+      "place_ids": ["yeongcheon-cheongdam"],
+      "area_ids": ["gangnam-cheongdam"],
+      "evidence_level": "mention",
+      "summary_en": "An Allure Korea round-up names a Cheongdam barbecue restaurant among the places Jungkook has visited. The report gives no dishes and no dates.",
+      "summary_ko": "얼루어 코리아의 맛집 기사가 정국이 다녀간 곳 중 하나로 청담의 고깃집을 꼽았습니다. 메뉴와 시기는 보도에 없습니다."
+    },
+    {
+      "id": "blackpink",
+      "order": 2,
+      "launch": true,
+      "kind": "group",
+      "name_en": "BLACKPINK",
+      "name_ko": "블랙핑크",
+      "status": "coming-soon",
+      "place_ids": [],
+      "area_ids": [],
+      "summary_en": "No verified public report is loaded yet.",
+      "summary_ko": "아직 검증된 공개 보도가 없습니다."
+    },
+    {
+      "id": "seventeen",
+      "order": 3,
+      "launch": true,
+      "kind": "group",
+      "name_en": "SEVENTEEN",
+      "name_ko": "세븐틴",
+      "status": "published",
+      "place_ids": ["mutan-apgujeong"],
+      "area_ids": ["gangnam-apgujeong"],
+      "members": [
+        { "name_en": "Mingyu", "name_ko": "민규" },
+        { "name_en": "Jeonghan", "name_ko": "정한" }
+      ],
+      "evidence_level": "menu",
+      "summary_en": "Two magazine round-ups report Mingyu and Jeonghan eating at a Chinese dining room in Apgujeong, down to the three dishes they ordered.",
+      "summary_ko": "민규와 정한이 압구정의 차이니스 다이닝에서 식사한 사실이 두 매체의 맛집 기사에 실렸습니다. 주문한 메뉴 세 가지까지 나옵니다."
+    },
+    {
+      "id": "straykids",
+      "order": 4,
+      "launch": true,
+      "kind": "group",
+      "name_en": "Stray Kids",
+      "name_ko": "스트레이 키즈",
+      "status": "published",
+      "place_ids": ["yeongcheon-cheongdam"],
+      "area_ids": ["gangnam-cheongdam"],
+      "evidence_level": "mention",
+      "summary_en": "An Allure Korea round-up lists a Cheongdam barbecue restaurant among the places Bang Chan has visited. No menu details in the report.",
+      "summary_ko": "얼루어 코리아의 맛집 기사가 방찬이 다녀간 곳 중 하나로 청담의 고깃집을 꼽았습니다. 메뉴는 나오지 않습니다."
+    },
+    {
+      "id": "twice",
+      "order": 5,
+      "launch": true,
+      "kind": "group",
+      "name_en": "TWICE",
+      "name_ko": "트와이스",
+      "status": "coming-soon",
+      "place_ids": [],
+      "area_ids": [],
+      "summary_en": "No verified public report is loaded yet.",
+      "summary_ko": "아직 검증된 공개 보도가 없습니다."
+    },
+    {
+      "id": "newjeans",
+      "order": 6,
+      "launch": true,
+      "kind": "group",
+      "name_en": "NewJeans",
+      "name_ko": "뉴진스",
+      "status": "coming-soon",
+      "place_ids": [],
+      "area_ids": [],
+      "summary_en": "No verified public report is loaded yet.",
+      "summary_ko": "아직 검증된 공개 보도가 없습니다."
+    },
+    {
+      "id": "iu",
+      "order": 7,
+      "launch": true,
+      "kind": "solo",
+      "name_en": "IU",
+      "name_ko": "아이유",
+      "status": "coming-soon",
+      "place_ids": [],
+      "area_ids": [],
+      "summary_en": "No verified public report is loaded yet.",
+      "summary_ko": "아직 검증된 공개 보도가 없습니다."
+    },
+    {
+      "id": "enhypen",
+      "order": 8,
+      "launch": true,
+      "kind": "group",
+      "name_en": "ENHYPEN",
+      "name_ko": "엔하이픈",
+      "status": "coming-soon",
+      "place_ids": [],
+      "area_ids": [],
+      "summary_en": "No verified public report is loaded yet.",
+      "summary_ko": "아직 검증된 공개 보도가 없습니다."
+    },
+    {
+      "id": "nct",
+      "order": 9,
+      "launch": false,
+      "kind": "group",
+      "name_en": "NCT",
+      "name_ko": "엔시티",
+      "status": "published",
+      "place_ids": ["yeongcheon-cheongdam"],
+      "area_ids": ["gangnam-cheongdam"],
+      "members": [
+        { "name_en": "Doyoung", "name_ko": "도영" },
+        { "name_en": "Haechan", "name_ko": "해찬" }
+      ],
+      "evidence_level": "menu",
+      "summary_en": "Doyoung and Haechan named a Cheongdam barbecue restaurant as a group favourite, with a best-menu trio and a story about six plates of yukhoe.",
+      "summary_ko": "도영과 해찬이 청담의 고깃집을 단골로 소개했습니다. 베스트 메뉴 세 가지와 육회 여섯 접시 일화가 함께 보도됐습니다."
+    },
+    {
+      "id": "cha-eunwoo",
+      "order": 10,
+      "launch": false,
+      "kind": "solo",
+      "name_en": "CHA EUN-WOO",
+      "name_ko": "차은우",
+      "status": "published",
+      "place_ids": ["checkyeast-gangneung", "yeongcheon-cheongdam"],
+      "area_ids": ["gangneung", "gangnam-cheongdam"],
+      "evidence_level": "menu",
+      "summary_en": "A Gangneung dessert cafe is nicknamed after him because of a pastry he reportedly enjoyed, and a Cheongdam barbecue restaurant is listed among his visits.",
+      "summary_ko": "강릉의 디저트 카페가 그가 맛있게 먹은 파이 때문에 그의 별명으로 불리고, 청담의 고깃집도 다녀간 곳으로 보도됐습니다."
+    }
+  ]
+}

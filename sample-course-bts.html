@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>BTS 서울 코스 2개 — Idol Table (자동 생성 샘플)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f2eee6">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<meta name="description" content="BTS 서울 반나절·하루 코스 자동 생성 샘플 — 장소 20곳 중 근거 확인 3곳, 근거와 날짜를 카드마다 표기. 2026-11-12 생성.">
+<style>
+:root{
+  --paper:#f2eee6; --card:#fbf9f4; --ink:#17150f; --muted:#6b6459; --line:#dcd4c4;
+  --line-soft:#e7e0d2; --brick:#a63b2a; --green:#1f5d4a; --amber:#8a6a1e; --chip:#eae3d4;
+  --font: "Noto Sans CJK KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);
+  font-size:15px;line-height:1.55;letter-spacing:-0.01em;
+  background-image:radial-gradient(rgba(23,21,15,.035) 1px, transparent 1px);
+  background-size:3px 3px;}
+a{color:inherit}
+.wrap{max-width:430px;margin:0 auto;padding:0 18px 64px}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px}
+.brand{font-weight:800;letter-spacing:-0.03em;font-size:17px;text-decoration:none}
+.brand span{color:var(--brick)}
+.chip-sample{font-size:10px;letter-spacing:.14em;font-weight:700;border:1px solid var(--ink);
+  padding:3px 7px;border-radius:2px;background:var(--ink);color:var(--paper)}
+
+/* hero */
+.hero{padding:8px 0 20px;border-bottom:1px solid var(--line)}
+.eyebrow{margin:0 0 8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--brick);font-weight:700}
+h1{margin:0;font-size:29px;line-height:1.16;letter-spacing:-0.045em;font-weight:800}
+h1 em{font-style:normal;color:var(--brick)}
+.lede{margin:12px 0 0;color:var(--muted);font-size:14px}
+.claim{margin:16px 0 0;padding:12px 14px;border-left:3px solid var(--brick);background:rgba(166,59,42,.06);
+  font-size:13.5px;line-height:1.5}
+.claim b{font-weight:700}
+.metaline{margin:14px 0 0;font-size:11.5px;color:var(--muted);letter-spacing:0}
+.nb{white-space:nowrap}
+.sample-note{margin:14px 0 0;padding:10px 12px;border:1px dashed var(--line);font-size:11.5px;color:var(--muted);background:rgba(255,255,255,.4)}
+
+/* tabs */
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;padding:12px 0;background:linear-gradient(var(--paper) 72%,rgba(242,238,230,0))}
+.tabs button{flex:1;appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);
+  font:inherit;font-weight:700;font-size:13.5px;padding:11px 8px;border-radius:10px;cursor:pointer;
+  display:flex;flex-direction:column;gap:1px;align-items:flex-start;transition:.15s}
+.tabs button small{font-weight:500;color:var(--muted);font-size:11px}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tabs button[aria-selected="true"] small{color:rgba(242,238,230,.72)}
+
+/* course head */
+.course-head{padding:10px 0 4px}
+.course h2{margin:2px 0 4px;font-size:24px;letter-spacing:-0.04em;line-height:1.2}
+.window{margin:0;color:var(--muted);font-size:13px}
+.window b{color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* BTS highlights */
+.course-theme{margin:12px 0 10px;padding:12px 14px;background:rgba(123,63,196,.08);border:1px solid rgba(123,63,196,.22);border-radius:12px}
+.theme-tag{margin:0 0 3px;font-size:11.5px;font-weight:800;color:#6b21a8;letter-spacing:-.01em}
+.theme-headline{margin:0 0 4px;font-size:14.5px;font-weight:800;color:#2e1065;letter-spacing:-.02em;line-height:1.35}
+.theme-desc{margin:0;font-size:12.5px;color:#4c1d95;line-height:1.45}
+
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 6px}
+.stat{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:9px 11px;
+  display:flex;flex-direction:column}
+.stat .n{font-size:22px;font-weight:800;letter-spacing:-0.03em;font-variant-numeric:tabular-nums;line-height:1.1}
+.stat .n small{font-size:12px;font-weight:600;color:var(--muted)}
+.stat .k{font-size:11px;color:var(--muted)}
+.stat.single .n{color:var(--amber)}
+
+h3.sec{display:flex;align-items:baseline;gap:8px;margin:28px 0 4px;font-size:15px;letter-spacing:-0.02em}
+h3.sec span{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:0}
+.hint{margin:0 0 12px;font-size:11.5px;color:var(--muted)}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline .stop,.timeline .leg{display:grid;grid-template-columns:44px 22px 1fr;align-items:start}
+.timeline .t{font-variant-numeric:tabular-nums;font-weight:700;font-size:12.5px;padding-top:3px;color:var(--muted)}
+.timeline .rail{position:relative;display:flex;justify-content:center;min-height:26px}
+.timeline .dot{width:19px;height:19px;border-radius:50%;background:var(--ink);color:var(--paper);
+  font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:1}
+.timeline .stop:not(:last-child) .rail::after{content:"";position:absolute;top:19px;bottom:-2px;width:1px;background:var(--line)}
+.timeline .body{padding:0 0 16px 4px}
+.timeline .name{display:block;font-weight:700;font-size:15px;letter-spacing:-0.02em}
+.timeline .bts-badge{display:inline-block;font-size:11px;font-weight:700;color:#6b21a8;background:rgba(123,63,196,.12);padding:2px 7px;border-radius:4px;margin:3px 0 2px;letter-spacing:-.01em}
+.timeline .sub{display:block;font-size:11.5px;color:var(--muted);margin-top:1px}
+.timeline .leg .leg-rail{position:relative;display:flex;justify-content:center}
+.timeline .leg .leg-line{width:1px;height:26px;background:
+  repeating-linear-gradient(to bottom,var(--line) 0 3px,transparent 3px 6px)}
+.timeline .leg-body{font-size:11.5px;color:var(--muted);padding:4px 0 4px 4px}
+.leg-mode{font-weight:700;color:var(--ink)}
+.leg-dist{opacity:.8}
+
+/* cards */
+.cards{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px;
+  position:relative;box-shadow:0 1px 0 rgba(23,21,15,.04)}
+.card-head{display:flex;align-items:flex-start;gap:10px}
+.stamp{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--ink);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:2px}
+.titles{flex:1;min-width:0}
+.card h3{margin:0;font-size:16.5px;letter-spacing:-0.03em;line-height:1.25}
+.card .en{margin:1px 0 0;font-size:11px;color:var(--muted);letter-spacing:0}
+
+.bts-callout{margin:11px 0 4px;padding:10px 12px;background:rgba(123,63,196,.07);border-left:3px solid #7c3aed;border-radius:4px 10px 10px 4px}
+.bts-callout-tag{display:inline-block;font-size:11px;font-weight:800;color:#6b21a8;letter-spacing:-.01em}
+.bts-callout-desc{margin:3px 0 0;font-size:12.5px;font-weight:600;color:#2e1065;line-height:1.45}
+
+.grade{flex:0 0 auto;font-size:10px;font-weight:700;letter-spacing:.02em;padding:3px 7px;border-radius:20px;
+  border:1px solid currentColor;display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.grade i{width:5px;height:5px;border-radius:50%;background:currentColor;display:block}
+.grade.verified{color:var(--green)}
+.grade.single{color:var(--amber)}
+.grade.stale{color:var(--muted)}
+
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:11px 0 0}
+.chip{font-size:10.5px;background:var(--chip);border-radius:5px;padding:3px 7px;color:#413b31;letter-spacing:0}
+.chip.price{background:transparent;border:1px solid var(--line)}
+.pricenote{margin:3px 0 0;font-size:10px;color:var(--muted)}
+
+.spec{display:grid;grid-template-columns:62px 1fr;gap:4px 8px;margin:11px 0 0;font-size:12px;
+  border-top:1px solid var(--line-soft);padding-top:10px}
+.spec dt{color:var(--muted);font-size:11px}
+.spec dd{margin:0;font-variant-numeric:tabular-nums;min-width:0;overflow-wrap:anywhere}
+.tiny{font-size:10.5px;color:var(--muted)}
+.unk{font-size:10.5px;color:var(--amber);font-weight:600}
+.evtype{font-weight:600}
+.lnk{text-decoration:none;border-bottom:1px solid var(--line);color:var(--brick);font-weight:600}
+.note{margin:10px 0 0;font-size:11.5px;color:#4a4438;background:rgba(23,21,15,.035);border-radius:8px;
+  padding:8px 10px;line-height:1.5}
+.maps{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:11px}
+.mapbtn{flex:1 1 auto;text-align:center;font-size:12px;font-weight:700;text-decoration:none;
+  border:1px solid var(--ink);border-radius:8px;padding:8px 10px}
+.mapbtn:first-child{background:var(--ink);color:var(--paper)}
+.mapbtn:last-of-type{background:transparent}
+.coord{flex:1 0 100%;font-size:9.5px;color:var(--muted);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+
+/* rules */
+.rules{margin:18px 0 0;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.45)}
+.rules summary{cursor:pointer;padding:12px 14px;font-size:12.5px;font-weight:700;display:flex;
+  justify-content:space-between;align-items:center;gap:8px}
+.cnt{font-weight:600;color:var(--muted);font-size:11px}
+.rules table{width:100%;border-collapse:collapse;font-size:11.5px;margin:0 0 4px}
+.rules th{text-align:left;color:var(--muted);font-weight:700;width:26px;padding:6px 0 6px 14px;vertical-align:top}
+.rules td{padding:6px 14px 6px 6px;border-bottom:1px solid var(--line-soft)}
+.rules td:last-child{width:64px;text-align:right;padding-right:14px}
+.st{font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;white-space:nowrap}
+.st.ok{color:var(--green);background:rgba(31,93,74,.1)}
+.st.part{color:var(--amber);background:rgba(138,106,30,.12)}
+.st.relax{color:var(--brick);background:rgba(166,59,42,.1)}
+.exceptions{margin:4px 14px 14px;padding:10px 12px;border-radius:8px;background:rgba(166,59,42,.055);
+  border:1px dashed rgba(166,59,42,.35)}
+.ex-h{margin:0 0 6px;font-size:10.5px;font-weight:800;color:var(--brick);letter-spacing:.04em}
+.exceptions ul{margin:0;padding-left:14px;font-size:11px;line-height:1.5}
+.exceptions li+li{margin-top:6px}
+.why{color:var(--muted)}
+
+/* footer */
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:18px;font-size:11.5px;color:var(--muted)}
+footer h4{margin:0 0 6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+footer ol,footer ul{margin:0 0 14px;padding-left:16px;line-height:1.55}
+footer li+li{margin-top:4px}
+.legal{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:10.5px;line-height:1.5}
+@media (min-width:520px){
+  .wrap{max-width:640px;padding-bottom:80px}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .cards{display:grid;grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a class="brand" href="#">Idol<span>Table</span></a>
+    <span class="chip-sample">자동 생성 샘플</span>
+  </div>
+
+  <section class="hero">
+    <p class="eyebrow">BTS · Seoul · 근거로 확인하는 K-pop 서울 코스</p>
+    <h1>BTS 서울 코스 <em>2개</em></h1>
+    <p class="lede">최애가 실제로 간 곳, 공식 계정이 밝힌 곳만 근거와 날짜를 붙여 실었습니다.</p>
+    <p class="claim">우리는 어디가 좋은지 말하지 않습니다.<br><b>어디서 확인된 곳인지 보여줍니다.</b></p>
+    <p class="metaline">생성 2026-11-12 · 규칙 route_rule_v0.3 · 요일 가정 금요일 ·
+      <span class="nb">장소 20곳</span> 중 <span class="nb">코스에 넣을 수 있는 곳 17곳</span></p>
+    <p class="sample-note">이 페이지는 손으로 고른 목록이 아닙니다. <b>data/build_course.py</b>가
+      places.json에서 규칙 v0.3으로 뽑아냈고, 두 코스는 그 결과 그대로입니다.
+      근거 등급(verified / single / stale)을 카드마다 표기합니다.</p>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="코스 선택">
+    <button role="tab" aria-selected="true" aria-controls="course-bts-half" data-target="bts-half"
+      id="tab-bts-half">반나절 <small>4곳 · 13:00–18:02</small></button>
+    <button role="tab" aria-selected="false" aria-controls="course-bts-full" data-target="bts-full"
+      id="tab-bts-full">하루 <small>6곳 · 10:00–17:57</small></button>
+  </div>
+
+    <section class="course is-active" id="course-bts-half" data-course="bts-half" >
+      <header class="course-head">
+        <p class="eyebrow">Half day · 용산 · 13:00–18:02</p>
+        <h2>BTS 용산 반나절 코스</h2>
+        <p class="window"><b>13:00–18:02</b> · 4곳</p>
+      <div class="course-theme">
+        <p class="theme-tag">💜 왜 BTS 코스인가요?</p>
+        <p class="theme-headline">하이브 사옥부터 2021 시즌그리팅 촬영지까지</p>
+        <p class="theme-desc">방탄의 본진 사옥과 공식 화보·홍보영상 촬영지를 용산 반경 3km 안에서 가장 알차게 잇는 반나절 성지순례 코스입니다.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="n">3</span><span class="k">근거 확인</span></div>
+        <div class="stat single"><span class="n">1</span><span class="k">단일 출처</span></div>
+        <div class="stat wide"><span class="n">5<small>h</small> 02<small>m</small></span><span class="k">총 소요</span></div>
+        <div class="stat wide"><span class="n">27<small>분</small></span><span class="k">이동 합계</span></div>
+      </div>
+      </header>
+
+      <h3 class="sec">순서 <span>동선과 이동</span></h3>
+      <p class="hint">이동 시간은 두 좌표의 직선거리로 계산한 값입니다. 실제 경로·환승·대기는 반영하지 않았습니다.</p>
+      <ol class="timeline">
+        <li class="stop">
+          <span class="t">13:00</span>
+          <span class="rail"><span class="dot">1</span></span>
+          <span class="body">
+            <span class="name">국립중앙박물관</span>
+            <span class="bts-badge">💜 2021 서울 홍보영상 촬영지 · 뮷즈</span>
+            <span class="sub">성지·랜드마크 · 용산</span>
+          </span>
+        </li>
+        <li class="leg">
+          <span class="leg-time"></span>
+          <span class="leg-rail"><span class="leg-line"></span></span>
+          <span class="leg-body"><span class="leg-mode">지하철</span> 13분 <span class="leg-dist">· 1,384m 직선</span></span>
+        </li>
+        <li class="stop">
+          <span class="t">15:03</span>
+          <span class="rail"><span class="dot">2</span></span>
+          <span class="body">
+            <span class="name">블랙드럼 용산점</span>
+            <span class="bts-badge">💜 사옥 옆 아미 포토존 카페</span>
+            <span class="sub">카페 · 용산</span>
+          </span>
+        </li>
+        <li class="leg">
+          <span class="leg-time"></span>
+          <span class="leg-rail"><span class="leg-line"></span></span>
+          <span class="leg-body"><span class="leg-mode">도보</span> 1분 <span class="leg-dist">· 66m 직선</span></span>
+        </li>
+        <li class="stop">
+          <span class="t">15:59</span>
+          <span class="rail"><span class="dot">3</span></span>
+          <span class="body">
+            <span class="name">하이브 사옥</span>
+            <span class="bts-badge">💜 BTS 소속사 본진 사옥 (외관 투어)</span>
+            <span class="sub">기획사 · 용산</span>
+          </span>
+        </li>
+        <li class="leg">
+          <span class="leg-time"></span>
+          <span class="leg-rail"><span class="leg-line"></span></span>
+          <span class="leg-body"><span class="leg-mode">도보</span> 13분 <span class="leg-dist">· 920m 직선</span></span>
+        </li>
+        <li class="stop">
+          <span class="t">16:47</span>
+          <span class="rail"><span class="dot">4</span></span>
+          <span class="body">
+            <span class="name">노들섬</span>
+            <span class="bts-badge">💜 2021 시즌그리팅 공식 화보 촬영지</span>
+            <span class="sub">성지·랜드마크 · 용산</span>
+          </span>
+        </li>
+      </ol>
+
+      <h3 class="sec">장소 <span>근거와 날짜</span></h3>
+      <div class="cards">
+      <article class="card" id="bts-nmk">
+        <div class="card-head">
+          <span class="stamp">1</span>
+          <div class="titles">
+            <h3>국립중앙박물관</h3>
+            <p class="en">National Museum of Korea</p>
+          </div>
+          <span class="grade verified"><i></i>근거 확인</span>
+        </div>
+
+        <div class="bts-callout">
+          <span class="bts-callout-tag">💜 방탄 포인트</span>
+          <p class="bts-callout-desc">2021 서울 관광 공식 홍보영상에서 방탄이 소개한 촬영지입니다. BTS 협업 굿즈(뮷즈)를 판매하며 상설전시는 무료입니다.</p>
+        </div>
+
+        <div class="chips">
+          <span class="chip">성지·랜드마크</span>
+          <span class="chip">용산</span>
+          <span class="chip price">가격대 미확인</span>
+        </div>
+        <p class="pricenote"></p>
+
+        <dl class="spec">
+          <dt>영업시간</dt><dd>월–화 09:30–17:30<br>수 09:30–21:00<br>목–금 09:30–17:30<br>토 09:30–21:00<br>일 09:30–17:30</dd>
+          <dt>최종 확인</dt><dd>2026-11-12 <span class="tiny">영업시간 포함</span></dd>
+          <dt>근거</dt><dd><span class="evtype">최애 방문 보도</span> · 2026-03-20 ·
+            <a class="lnk" href="https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">원문</a> <a class="lnk" href="https://web.archive.org/web/20261112085911/https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">사본</a></dd>
+        </dl>
+
+        <p class="note">2021 서울 관광 홍보영상 촬영지. BTS 협업 굿즈(뮷즈) 판매. 상설전시 무료</p>
+
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EA%B5%AD%EB%A6%BD%EC%A4%91%EC%95%99%EB%B0%95%EB%AC%BC%EA%B4%80" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.523851,126.98047" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.52385, 126.98047</span>
+        </div>
+      </article>
+      <article class="card" id="bts-black-drum">
+        <div class="card-head">
+          <span class="stamp">2</span>
+          <div class="titles">
+            <h3>블랙드럼 용산점</h3>
+            <p class="en">Black Drum (Yongsan)</p>
+          </div>
+          <span class="grade single"><i></i>단일 출처</span>
+        </div>
+
+        <div class="bts-callout">
+          <span class="bts-callout-tag">💜 방탄 포인트</span>
+          <p class="bts-callout-desc">하이브 사옥 바로 옆 카페로, 방탄 팬들을 위한 대형 포토존과 굿즈 전시 공간이 마련되어 있습니다.</p>
+        </div>
+
+        <div class="chips">
+          <span class="chip">카페</span>
+          <span class="chip">용산</span>
+          <span class="chip price">가격대 미확인</span>
+        </div>
+        <p class="pricenote"></p>
+
+        <dl class="spec">
+          <dt>영업시간</dt><dd>월–일 11:00–21:30</dd>
+          <dt>최종 확인</dt><dd>2026-11-12 <span class="tiny">영업시간 포함</span></dd>
+          <dt>근거</dt><dd><span class="evtype">최애 방문 보도</span> · 2026-03-20 ·
+            <a class="lnk" href="https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">원문</a> <a class="lnk" href="https://web.archive.org/web/20261112085911/https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">사본</a></dd>
+        </dl>
+
+        <p class="note">하이브 사옥 인근 카페. BTS 포토존 운영</p>
+
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EB%B8%94%EB%9E%99%EB%93%9C%EB%9F%BC%20%EC%9A%A9%EC%82%B0%EC%A0%90" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.524471,126.964791" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.52447, 126.96479</span>
+        </div>
+      </article>
+      <article class="card" id="bts-hybe-hq">
+        <div class="card-head">
+          <span class="stamp">3</span>
+          <div class="titles">
+            <h3>하이브 사옥</h3>
+            <p class="en">HYBE Headquarters</p>
+          </div>
+          <span class="grade verified"><i></i>근거 확인</span>
+        </div>
+
+        <div class="bts-callout">
+          <span class="bts-callout-tag">💜 방탄 포인트</span>
+          <p class="bts-callout-desc">방탄소년단의 소속사 하이브 본사 사옥입니다. 전 세계 아미들의 인증샷 필수 코스이며 외관 투어가 가능합니다.</p>
+        </div>
+
+        <div class="chips">
+          <span class="chip">기획사</span>
+          <span class="chip">용산</span>
+          <span class="chip price">가격대 미확인</span>
+        </div>
+        <p class="pricenote"></p>
+
+        <dl class="spec">
+          <dt>영업시간</dt><dd>월–금 09:00–18:00 <span class="tiny">(토–일 휴무)</span></dd>
+          <dt>최종 확인</dt><dd>2026-11-12 <span class="tiny">영업시간 포함</span></dd>
+          <dt>근거</dt><dd><span class="evtype">공식·공공 출처</span> · 2026-03-20 ·
+            <a class="lnk" href="https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">원문</a> <a class="lnk" href="https://web.archive.org/web/20261112085911/https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">사본</a></dd>
+        </dl>
+
+        <p class="note">외관만 볼 수 있고 내부 출입은 불가. 1층 팝업 공간은 별도 운영. 휠체어: 보도 평탄, 건물 앞 인도 폭 넓음</p>
+
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%ED%95%98%EC%9D%B4%EB%B8%8C%20%EC%82%AC%EC%98%A5" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.52442,126.96405" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.52442, 126.96405</span>
+        </div>
+      </article>
+      <article class="card" id="bts-nodeul">
+        <div class="card-head">
+          <span class="stamp">4</span>
+          <div class="titles">
+            <h3>노들섬</h3>
+            <p class="en">Nodeul Island</p>
+          </div>
+          <span class="grade verified"><i></i>근거 확인</span>
+        </div>
+
+        <div class="bts-callout">
+          <span class="bts-callout-tag">💜 방탄 포인트</span>
+          <p class="bts-callout-desc">BTS가 한복을 입고 레전드 화보를 남긴 2021 시즌그리팅 공식 촬영지입니다. 한강을 마주한 잔디마당이 펼쳐집니다.</p>
+        </div>
+
+        <div class="chips">
+          <span class="chip">성지·랜드마크</span>
+          <span class="chip">용산</span>
+          <span class="chip price">가격대 미확인</span>
+        </div>
+        <p class="pricenote"></p>
+
+        <dl class="spec">
+          <dt>영업시간</dt><dd><span class="unk">미확인</span></dd>
+          <dt>최종 확인</dt><dd>2026-03-20 <span class="tiny">근거 확인일 · 영업시간은 미확인</span></dd>
+          <dt>근거</dt><dd><span class="evtype">최애 방문 보도</span> · 2026-03-20 ·
+            <a class="lnk" href="https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">원문</a> <a class="lnk" href="https://web.archive.org/web/20261112085911/https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">사본</a></dd>
+        </dl>
+
+        <p class="note">2021 시즌그리팅 화보 촬영지. 야외 잔디마당·라이브하우스</p>
+
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EB%85%B8%EB%93%A4%EC%84%AC" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.51766,126.958034" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.51766, 126.95803</span>
+        </div>
+      </article>
+      </div>
+
+        <details class="rules">
+          <summary>이 코스가 나온 규칙 점검 <span class="cnt">4/5 준수</span></summary>
+          <table>
+          <tr><th>R1</th><td>이동 상한(도보 15분·대중교통 20분)</td><td><span class="st ok">준수</span></td></tr>
+          <tr><th>R2</th><td>도착 시각이 영업시간 안</td><td><span class="st part">부분 확인</span></td></tr>
+          <tr><th>R3</th><td>활동 태그 2~3개</td><td><span class="st ok">준수</span></td></tr>
+          <tr><th>R4</th><td>장소 수·식당·카페 포함</td><td><span class="st ok">준수</span></td></tr>
+          <tr><th>R6</th><td>검증 우선·단일 출처 상한</td><td><span class="st ok">준수</span></td></tr>
+          </table>
+        <div class="exceptions">
+          <p class="ex-h">규칙에서 벗어난 지점 — 왜</p>
+          <ul>
+          <li><b>R2 영업시간 확인</b> — 미확인 1곳 포함<br><span class="why">공공 공원·경기장으로 영업시간 데이터가 없음 — 상시 개방으로 단정하지 않고 미확인으로 표시</span></li>
+          </ul>
+        </div>
+        </details>
+    </section>
+    <section class="course" id="course-bts-full" data-course="bts-full" hidden>
+      <header class="course-head">
+        <p class="eyebrow">Full day · 영등포 · 용산 · 10:00–17:57</p>
+        <h2>BTS 용산 하루 코스</h2>
+        <p class="window"><b>10:00–17:57</b> · 6곳</p>
+      <div class="course-theme">
+        <p class="theme-tag">💜 왜 BTS 코스인가요?</p>
+        <p class="theme-headline">여의도 10주년 페스타부터 RM 단골 곱창집까지</p>
+        <p class="theme-desc">아미 40만 명이 모였던 10주년 페스타 한강공원에서 출발해 하이브 사옥, 성지 분식점, 박물관, RM 방문 노포로 끝나는 풀데이 코스입니다.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="n">3</span><span class="k">근거 확인</span></div>
+        <div class="stat single"><span class="n">3</span><span class="k">단일 출처</span></div>
+        <div class="stat wide"><span class="n">7<small>h</small> 57<small>m</small></span><span class="k">총 소요</span></div>
+        <div class="stat wide"><span class="n">56<small>분</small></span><span class="k">이동 합계</span></div>
+      </div>
+      </header>
+
+      <h3 class="sec">순서 <span>동선과 이동</span></h3>
+      <p class="hint">이동 시간은 두 좌표의 직선거리로 계산한 값입니다. 실제 경로·환승·대기는 반영하지 않았습니다.</p>
+      <ol class="timeline">
+        <li class="stop">
+          <span class="t">10:00</span>
+          <span class="rail"><span class="dot">1</span></span>
+          <span class="body">
+            <span class="name">여의도한강공원</span>
+            <span class="bts-badge">💜 2023 데뷔 10주년 FESTA 메인 행사장</span>
+            <span class="sub">성지·랜드마크 · 영등포</span>
+          </span>
+        </li>
+        <li class="leg">
+          <span class="leg-time"></span>
+          <span class="leg-rail"><span class="leg-line"></span></span>
+          <span class="leg-body"><span class="leg-mode">지하철</span> 15분 <span class="leg-dist">· 2,241m 직선</span></span>
+        </li>
+        <li class="stop">
+          <span class="t">11:15</span>
+          <span class="rail"><span class="dot">2</span></span>
+          <span class="body">
+            <span class="name">노들섬</span>
+            <span class="bts-badge">💜 2021 시즌그리팅 공식 화보 촬영지</span>
+            <span class="sub">성지·랜드마크 · 용산</span>
+          </span>
+        </li>
+        <li class="leg">
+          <span class="leg-time"></span>
+          <span class="leg-rail"><span class="leg-line"></span></span>
+          <span class="leg-body"><span class="leg-mode">도보</span> 13분 <span class="leg-dist">· 920m 직선</span></span>
+        </li>
+        <li class="stop">
+          <span class="t">12:43</span>
+          <span class="rail"><span class="dot">3</span></span>
+          <span class="body">
+            <span class="name">하이브 사옥</span>
+            <span class="bts-badge">💜 BTS 소속사 본진 사옥 (외관 투어)</span>
+            <span class="sub">기획사 · 용산</span>
+          </span>
+        </li>
+        <li class="leg">
+          <span class="leg-time"></span>
+          <span class="leg-rail"><span class="leg-line"></span></span>
+          <span class="leg-body"><span class="leg-mode">도보</span> 2분 <span class="leg-dist">· 171m 직선</span></span>
+        </li>
+        <li class="stop">
+          <span class="t">13:21</span>
+          <span class="rail"><span class="dot">4</span></span>
+          <span class="body">
+            <span class="name">슈퍼스타 떡볶이</span>
+            <span class="sub">식당 · 용산</span>
+          </span>
+        </li>
+        <li class="leg">
+          <span class="leg-time"></span>
+          <span class="leg-rail"><span class="leg-line"></span></span>
+          <span class="leg-body"><span class="leg-mode">지하철</span> 13분 <span class="leg-dist">· 1,378m 직선</span></span>
+        </li>
+        <li class="stop">
+          <span class="t">14:44</span>
+          <span class="rail"><span class="dot">5</span></span>
+          <span class="body">
+            <span class="name">국립중앙박물관</span>
+            <span class="bts-badge">💜 2021 서울 홍보영상 촬영지 · 뮷즈</span>
+            <span class="sub">성지·랜드마크 · 용산</span>
+          </span>
+        </li>
+        <li class="leg">
+          <span class="leg-time"></span>
+          <span class="leg-rail"><span class="leg-line"></span></span>
+          <span class="leg-body"><span class="leg-mode">지하철</span> 13분 <span class="leg-dist">· 1,285m 직선</span></span>
+        </li>
+        <li class="stop">
+          <span class="t">16:47</span>
+          <span class="rail"><span class="dot">6</span></span>
+          <span class="body">
+            <span class="name">신림순대곱창볶음</span>
+            <span class="bts-badge">💜 RM 방문 인증 삼각지 순대곱창 노포</span>
+            <span class="sub">식당 · 용산 · 8,000–36,000원</span>
+          </span>
+        </li>
+      </ol>
+
+      <h3 class="sec">장소 <span>근거와 날짜</span></h3>
+      <div class="cards">
+      <article class="card" id="bts-yeouido">
+        <div class="card-head">
+          <span class="stamp">1</span>
+          <div class="titles">
+            <h3>여의도한강공원</h3>
+            <p class="en">Yeouido Hangang Park</p>
+          </div>
+          <span class="grade single"><i></i>단일 출처</span>
+        </div>
+
+        <div class="bts-callout">
+          <span class="bts-callout-tag">💜 방탄 포인트</span>
+          <p class="bts-callout-desc">전 세계 아미 40만 명이 모였던 2023 데뷔 10주년 BTS FESTA 메인 이벤트가 열린 상징적인 한강공원입니다.</p>
+        </div>
+
+        <div class="chips">
+          <span class="chip">성지·랜드마크</span>
+          <span class="chip">영등포</span>
+          <span class="chip price">가격대 미확인</span>
+        </div>
+        <p class="pricenote"></p>
+
+        <dl class="spec">
+          <dt>영업시간</dt><dd><span class="unk">미확인</span></dd>
+          <dt>최종 확인</dt><dd>2025-11-25 <span class="tiny">근거 확인일 · 영업시간은 미확인</span></dd>
+          <dt>근거</dt><dd><span class="evtype">공식·공공 출처</span> · 2025-11-25 ·
+            <a class="lnk" href="https://english.visitseoul.net/editorspicks/BTS-Tour-eng/ENNjhj0gw" target="_blank" rel="noopener">원문</a> <a class="lnk" href="https://web.archive.org/web/20261112090049/https://english.visitseoul.net/editorspicks/BTS-Tour-eng/ENNjhj0gw" target="_blank" rel="noopener">사본</a></dd>
+        </dl>
+
+        <p class="note">2023 BTS 10주년 페스타 개최지. 공원 전체 무장애 동선</p>
+
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EC%97%AC%EC%9D%98%EB%8F%84%ED%95%9C%EA%B0%95%EA%B3%B5%EC%9B%90" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.526389,126.935129" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.52639, 126.93513</span>
+        </div>
+      </article>
+      <article class="card" id="bts-nodeul">
+        <div class="card-head">
+          <span class="stamp">2</span>
+          <div class="titles">
+            <h3>노들섬</h3>
+            <p class="en">Nodeul Island</p>
+          </div>
+          <span class="grade verified"><i></i>근거 확인</span>
+        </div>
+
+        <div class="bts-callout">
+          <span class="bts-callout-tag">💜 방탄 포인트</span>
+          <p class="bts-callout-desc">BTS가 한복을 입고 레전드 화보를 남긴 2021 시즌그리팅 공식 촬영지입니다. 한강을 마주한 잔디마당이 펼쳐집니다.</p>
+        </div>
+
+        <div class="chips">
+          <span class="chip">성지·랜드마크</span>
+          <span class="chip">용산</span>
+          <span class="chip price">가격대 미확인</span>
+        </div>
+        <p class="pricenote"></p>
+
+        <dl class="spec">
+          <dt>영업시간</dt><dd><span class="unk">미확인</span></dd>
+          <dt>최종 확인</dt><dd>2026-03-20 <span class="tiny">근거 확인일 · 영업시간은 미확인</span></dd>
+          <dt>근거</dt><dd><span class="evtype">최애 방문 보도</span> · 2026-03-20 ·
+            <a class="lnk" href="https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">원문</a> <a class="lnk" href="https://web.archive.org/web/20261112085911/https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">사본</a></dd>
+        </dl>
+
+        <p class="note">2021 시즌그리팅 화보 촬영지. 야외 잔디마당·라이브하우스</p>
+
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EB%85%B8%EB%93%A4%EC%84%AC" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.51766,126.958034" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.51766, 126.95803</span>
+        </div>
+      </article>
+      <article class="card" id="bts-hybe-hq">
+        <div class="card-head">
+          <span class="stamp">3</span>
+          <div class="titles">
+            <h3>하이브 사옥</h3>
+            <p class="en">HYBE Headquarters</p>
+          </div>
+          <span class="grade verified"><i></i>근거 확인</span>
+        </div>
+
+        <div class="bts-callout">
+          <span class="bts-callout-tag">💜 방탄 포인트</span>
+          <p class="bts-callout-desc">방탄소년단의 소속사 하이브 본사 사옥입니다. 전 세계 아미들의 인증샷 필수 코스이며 외관 투어가 가능합니다.</p>
+        </div>
+
+        <div class="chips">
+          <span class="chip">기획사</span>
+          <span class="chip">용산</span>
+          <span class="chip price">가격대 미확인</span>
+        </div>
+        <p class="pricenote"></p>
+
+        <dl class="spec">
+          <dt>영업시간</dt><dd>월–금 09:00–18:00 <span class="tiny">(토–일 휴무)</span></dd>
+          <dt>최종 확인</dt><dd>2026-11-12 <span class="tiny">영업시간 포함</span></dd>
+          <dt>근거</dt><dd><span class="evtype">공식·공공 출처</span> · 2026-03-20 ·
+            <a class="lnk" href="https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">원문</a> <a class="lnk" href="https://web.archive.org/web/20261112085911/https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">사본</a></dd>
+        </dl>
+
+        <p class="note">외관만 볼 수 있고 내부 출입은 불가. 1층 팝업 공간은 별도 운영. 휠체어: 보도 평탄, 건물 앞 인도 폭 넓음</p>
+
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%ED%95%98%EC%9D%B4%EB%B8%8C%20%EC%82%AC%EC%98%A5" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.52442,126.96405" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.52442, 126.96405</span>
+        </div>
+      </article>
+      <article class="card" id="bts-superstar">
+        <div class="card-head">
+          <span class="stamp">4</span>
+          <div class="titles">
+            <h3>슈퍼스타 떡볶이</h3>
+            <p class="en">Superstar Tteokbokki</p>
+          </div>
+          <span class="grade single"><i></i>단일 출처</span>
+        </div>
+
+        <div class="bts-callout">
+          <span class="bts-callout-tag">💜 방탄 포인트</span>
+          <p class="bts-callout-desc">하이브 사옥 인근. BTS 관련 포토존·굿즈로 꾸며진 즉석떡볶이집</p>
+        </div>
+
+        <div class="chips">
+          <span class="chip">식당</span>
+          <span class="chip">용산</span>
+          <span class="chip price">가격대 미확인</span>
+        </div>
+        <p class="pricenote"></p>
+
+        <dl class="spec">
+          <dt>영업시간</dt><dd>월–일 11:00–22:00</dd>
+          <dt>최종 확인</dt><dd>2026-11-12 <span class="tiny">영업시간 포함</span></dd>
+          <dt>근거</dt><dd><span class="evtype">최애 방문 보도</span> · 2026-03-20 ·
+            <a class="lnk" href="https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">원문</a> <a class="lnk" href="https://web.archive.org/web/20261112085911/https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">사본</a></dd>
+        </dl>
+
+        <p class="note">하이브 사옥 인근. BTS 관련 포토존·굿즈로 꾸며진 즉석떡볶이집</p>
+
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EC%8A%88%ED%8D%BC%EC%8A%A4%ED%83%80%20%EB%96%A1%EB%B3%B6%EC%9D%B4" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.525745,126.965026" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.52575, 126.96503</span>
+        </div>
+      </article>
+      <article class="card" id="bts-nmk">
+        <div class="card-head">
+          <span class="stamp">5</span>
+          <div class="titles">
+            <h3>국립중앙박물관</h3>
+            <p class="en">National Museum of Korea</p>
+          </div>
+          <span class="grade verified"><i></i>근거 확인</span>
+        </div>
+
+        <div class="bts-callout">
+          <span class="bts-callout-tag">💜 방탄 포인트</span>
+          <p class="bts-callout-desc">2021 서울 관광 공식 홍보영상에서 방탄이 소개한 촬영지입니다. BTS 협업 굿즈(뮷즈)를 판매하며 상설전시는 무료입니다.</p>
+        </div>
+
+        <div class="chips">
+          <span class="chip">성지·랜드마크</span>
+          <span class="chip">용산</span>
+          <span class="chip price">가격대 미확인</span>
+        </div>
+        <p class="pricenote"></p>
+
+        <dl class="spec">
+          <dt>영업시간</dt><dd>월–화 09:30–17:30<br>수 09:30–21:00<br>목–금 09:30–17:30<br>토 09:30–21:00<br>일 09:30–17:30</dd>
+          <dt>최종 확인</dt><dd>2026-11-12 <span class="tiny">영업시간 포함</span></dd>
+          <dt>근거</dt><dd><span class="evtype">최애 방문 보도</span> · 2026-03-20 ·
+            <a class="lnk" href="https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">원문</a> <a class="lnk" href="https://web.archive.org/web/20261112085911/https://n.news.naver.com/article/022/0004114473" target="_blank" rel="noopener">사본</a></dd>
+        </dl>
+
+        <p class="note">2021 서울 관광 홍보영상 촬영지. BTS 협업 굿즈(뮷즈) 판매. 상설전시 무료</p>
+
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EA%B5%AD%EB%A6%BD%EC%A4%91%EC%95%99%EB%B0%95%EB%AC%BC%EA%B4%80" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.523851,126.98047" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.52385, 126.98047</span>
+        </div>
+      </article>
+      <article class="card" id="bts-samgakji">
+        <div class="card-head">
+          <span class="stamp">6</span>
+          <div class="titles">
+            <h3>신림순대곱창볶음</h3>
+            <p class="en">Samgakji Sillim Sundae Bokkeum</p>
+          </div>
+          <span class="grade single"><i></i>단일 출처</span>
+        </div>
+
+        <div class="bts-callout">
+          <span class="bts-callout-tag">💜 방탄 포인트</span>
+          <p class="bts-callout-desc">RM이 실제로 찾아 식사하고 간 삼각지 로컬 맛집입니다. 매장 안에 RM 방문 인증 사진이 게시되어 있습니다.</p>
+        </div>
+
+        <div class="chips">
+          <span class="chip">식당</span>
+          <span class="chip">용산</span>
+          <span class="chip price">8,000–36,000원</span>
+        </div>
+        <p class="pricenote"><span class="tiny">기사 2026-03-20 기준 메뉴 가격</span></p>
+
+        <dl class="spec">
+          <dt>영업시간</dt><dd>월–일 16:00–03:00</dd>
+          <dt>최종 확인</dt><dd>2026-11-12 <span class="tiny">영업시간 포함</span></dd>
+          <dt>근거</dt><dd><span class="evtype">최애 방문 보도</span> · 2026-03-20 ·
+            <a class="lnk" href="https://www.koreaherald.com/article/10698046" target="_blank" rel="noopener">원문</a> <a class="lnk" href="https://web.archive.org/web/20261112085117/https://www.koreaherald.com/article/10698046" target="_blank" rel="noopener">사본</a></dd>
+        </dl>
+
+        <p class="note">RM 방문, 매장에 사진 게시. 저녁 16시 이후 영업</p>
+
+        <div class="maps">
+          <a class="mapbtn" href="https://map.naver.com/p/search/%EC%8B%A0%EB%A6%BC%EC%88%9C%EB%8C%80%EA%B3%B1%EC%B0%BD%EB%B3%B6%EC%9D%8C" target="_blank" rel="noopener">네이버 지도 ↗</a>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=37.533926,126.973323" target="_blank" rel="noopener">구글 지도 ↗</a>
+          <span class="coord">37.53393, 126.97332</span>
+        </div>
+      </article>
+      </div>
+
+        <details class="rules">
+          <summary>이 코스가 나온 규칙 점검 <span class="cnt">3/5 준수</span></summary>
+          <table>
+          <tr><th>R1</th><td>이동 상한(도보 15분·대중교통 20분)</td><td><span class="st ok">준수</span></td></tr>
+          <tr><th>R2</th><td>도착 시각이 영업시간 안</td><td><span class="st part">부분 확인</span></td></tr>
+          <tr><th>R3</th><td>활동 태그 2~3개</td><td><span class="st ok">준수</span></td></tr>
+          <tr><th>R4</th><td>장소 수·식당·카페 포함</td><td><span class="st ok">준수</span></td></tr>
+          <tr><th>R6</th><td>검증 우선·단일 출처 상한</td><td><span class="st relax">완화</span></td></tr>
+          </table>
+        <div class="exceptions">
+          <p class="ex-h">규칙에서 벗어난 지점 — 왜</p>
+          <ul>
+          <li><b>R6 단일 출처 상한(코스당 1곳)</b> — single 3곳<br><span class="why">BTS verified 장소가 3곳뿐이라 6곳 코스를 만들면 verified를 모두 넣어도 single이 3곳 이상 필요</span></li>
+          <li><b>R2 영업시간 확인</b> — 미확인 2곳 포함<br><span class="why">공공 공원·경기장으로 영업시간 데이터가 없음 — 상시 개방으로 단정하지 않고 미확인으로 표시</span></li>
+          </ul>
+        </div>
+        </details>
+    </section>
+
+  <footer>
+    <h4>데이터 출처와 한계</h4>
+    <ol>
+      <li>장소·좌표·영업시간은 2026-11-12 수집분입니다. 영업시간은 방문 전에 다시 확인해야 합니다.</li>
+      <li>근거 등급은 원문 확인 결과입니다. 수집한 60곳 중 verified는 5곳뿐이고,
+        이 그룹은 verified 3곳 / single 16곳입니다.
+        코스 대부분이 단일 출처 — 단일 출처는 <b>출처가 하나</b>라는 뜻이며, 확인이 끝났다는 뜻이 아닙니다.</li>
+      <li>이동 시간·거리는 두 좌표의 <b>직선거리 계산값</b>입니다(도보 1.2 m/s, 지하철 25 km/h + 승하차 10분 가정).
+        실제 도로·환승·대기·경사는 반영하지 않았습니다.</li>
+      <li>영업 여부(폐업·휴업)는 아직 조회하지 않았습니다. 행정안전부 식품 일반음식점 인허가 OpenAPI 연동 전이라
+        화면에는 영업 여부 대신 최종 확인일만 적었습니다.</li>
+      <li>가격대는 공개 기사에 실린 6곳만 표기했고, 나머지는 “가격대 미확인”입니다. 비어 있는 값을 추정해 채우지 않았습니다.</li>
+      <li>근거 기간이 지났거나(2년 경과), 영업시간을 확인하지 못했거나, 팝업이 끝난 장소는 코스에서 제외했습니다:
+        <ul>
+            <li>카페 휴가 — 근거가 2년 넘었습니다 (2022-12-21 기사)</li>
+            <li>마린커피 빅히트사옥점 — 수집 단계에서 영업시간을 확인하지 못해 제외했습니다</li>
+            <li>신세계백화점 본점 (BTS POP-UP : ARIRANG) — 팝업 기간이 끝났습니다 (2026-03-20~04-12)</li>
+        </ul>
+      </li>
+      <li>두 코스는 3곳을 공유합니다. verified 장소가 같은 동네에 몰려 있어, 코스를 늘려도 장소가 겹칩니다.
+        이는 데이터가 부족한 지점이며, 그래서 이 페이지는 코스 수를 늘리지 않았습니다.</li>
+    </ol>
+    <div class="legal">
+      Not affiliated with or endorsed by any agency or artist. Facts are cited from public reports.<br>
+      사진·영상·로고·앨범 재킷은 쓰지 않았습니다. 삭제 요청 창구는 준비 중입니다.
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs button'));
+  function select(id){
+    tabs.forEach(function(b){ b.setAttribute('aria-selected', String(b.dataset.target === id)); });
+    document.querySelectorAll('.course').forEach(function(s){
+      var on = s.dataset.course === id;
+      s.hidden = !on;
+      s.classList.toggle('is-active', on);
+    });
+  }
+  tabs.forEach(function(b){ b.addEventListener('click', function(){ select(b.dataset.target); }); });
+})();
+</script>
+</body>
+</html>

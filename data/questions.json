@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-11-12",
+    "bank_size": 12,
+    "note": "Every question is built from a fact that a linked report states. Wrong answers never name a real restaurant as the rejected option except when the question is asking which restaurant it was; menu and detail questions use generic dishes or numbers."
+  },
+  "questions": [
+    {
+      "id": "q-mutan-who",
+      "type": "A",
+      "status": "published",
+      "person_id": "seventeen",
+      "place_id": "mutan-apgujeong",
+      "route_id": "apgujeong-cheongdam",
+      "question_en": "SEVENTEEN's Mingyu and Jeonghan were reported sharing a meal in Apgujeong. Which place was it?",
+      "question_ko": "세븐틴 민규와 정한이 압구정에서 함께 식사한 곳으로 보도된 곳은?",
+      "choices_en": [
+        "MUTAN (무탄), Apgujeong",
+        "Yeongcheon Yeonghwa (영천영화), Cheongdam",
+        "CHECK YEAST (체크이스트), Gangneung",
+        "A barbecue restaurant in Itaewon"
+      ],
+      "choices_ko": [
+        "무탄 (압구정)",
+        "영천영화 (청담)",
+        "체크이스트 (강릉)",
+        "이태원의 한 고깃집"
+      ],
+      "answer": 0,
+      "note_en": "Allure Korea and GQ Korea both name MUTAN, a Chinese dining room in Apgujeong, as the place the two members went to. Allure Korea credits Mingyu's Instagram (@min9yu_k) as the original post.",
+      "note_ko": "얼루어 코리아와 지큐 코리아가 모두 압구정의 차이니스 다이닝 무탄을 두 사람이 찾은 곳으로 꼽았습니다. 얼루어 코리아는 원출처로 민규의 인스타그램(@min9yu_k)을 표기했습니다.",
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        },
+        {
+          "outlet": "GQ Korea",
+          "title": "요즘 아이돌이 숨겨둔 핫플레이스(국내ver.)",
+          "title_gloss_en": "Hot places idols keep to themselves (Korea edition)",
+          "date": "2024-10-08",
+          "url": "https://www.gqkorea.co.kr/2024/10/08/%ec%9a%94%ec%a6%98-%ec%95%84%ec%9d%b4%eb%8f%8c%ec%9d%b4-%ec%88%a8%ea%b2%a8%eb%91%94-%ed%95%ab%ed%94%8c%eb%a0%88%ec%9d%b4%ec%8a%a4-%ea%b5%ad%eb%82%b4-ver/"
+        }
+      ]
+    },
+    {
+      "id": "q-mutan-order",
+      "type": "B",
+      "status": "published",
+      "person_id": "seventeen",
+      "place_id": "mutan-apgujeong",
+      "route_id": "apgujeong-cheongdam",
+      "question_en": "What did the two SEVENTEEN members order at MUTAN, according to the reports?",
+      "question_ko": "보도에 따르면 세븐틴 두 멤버가 무탄에서 주문한 메뉴는?",
+      "choices_en": [
+        "Chili yulinji, menbosha and steak truffle jjajangmyeon",
+        "Galbi, doenjang jjigae and cold noodles",
+        "Lamb skewers, lamb ribs and malatang",
+        "Budae jjigae, fish cake stir-fry and ramyeon"
+      ],
+      "choices_ko": [
+        "고추 유린기, 멘보샤, 스테이크 트러플 자장면",
+        "갈비살, 된장찌개, 냉면",
+        "양꼬치, 양갈빗살, 마라탕",
+        "부대찌개, 어묵볶음, 라면"
+      ],
+      "answer": 0,
+      "note_en": "Both magazine reports list the same three dishes. Allure Korea adds a tip from the article: the jjajangmyeon is good with the chili from the yulinji on top.",
+      "note_ko": "두 매체가 같은 세 가지 메뉴를 적었습니다. 얼루어 코리아는 자장면에 고추 유린기의 고추를 얹어 먹는 조합을 추천한다고 덧붙였습니다.",
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        },
+        {
+          "outlet": "GQ Korea",
+          "title": "요즘 아이돌이 숨겨둔 핫플레이스(국내ver.)",
+          "title_gloss_en": "Hot places idols keep to themselves (Korea edition)",
+          "date": "2024-10-08",
+          "url": "https://www.gqkorea.co.kr/2024/10/08/%ec%9a%94%ec%a6%98-%ec%95%84%ec%9d%b4%eb%8f%8c%ec%9d%b4-%ec%88%a8%ea%b2%a8%eb%91%94-%ed%95%ab%ed%94%8c%eb%a0%88%ec%9d%b4%ec%8a%a4-%ea%b5%ad%eb%82%b4-ver/"
+        }
+      ]
+    },
+    {
+      "id": "q-mutan-jjajang",
+      "type": "B",
+      "status": "published",
+      "person_id": "seventeen",
+      "place_id": "mutan-apgujeong",
+      "route_id": "apgujeong-cheongdam",
+      "question_en": "MUTAN's signature jjajangmyeon is described as coming topped with what?",
+      "question_ko": "무탄의 대표 메뉴인 자장면에는 무엇이 올라가나?",
+      "choices_en": [
+        "Seared steak and fresh truffle",
+        "Grilled eel and perilla leaf",
+        "Fried shrimp and sweet chili",
+        "Braised pork belly and kimchi"
+      ],
+      "choices_ko": ["구운 스테이크와 생 트러플", "구운 장어와 깻잎", "튀긴 새우와 달콤한 고추", "수육과 김치"],
+      "answer": 0,
+      "note_en": "The report describes a thick slice of well-seared steak and fresh truffle on the noodles, and calls the dish the luxury end of jjajangmyeon.",
+      "note_ko": "기사는 두툼하게 구운 스테이크와 생 트러플이 올라간다고 설명하며, 자장면 계의 명품이라고 표현했습니다.",
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        },
+        {
+          "outlet": "GQ Korea",
+          "title": "요즘 아이돌이 숨겨둔 핫플레이스(국내ver.)",
+          "title_gloss_en": "Hot places idols keep to themselves (Korea edition)",
+          "date": "2024-10-08",
+          "url": "https://www.gqkorea.co.kr/2024/10/08/%ec%9a%94%ec%a6%98-%ec%95%84%ec%9d%b4%eb%8f%8c%ec%9d%b4-%ec%88%a8%ea%b2%a8%eb%91%94-%ed%95%ab%ed%94%8c%eb%a0%88%ec%9d%b4%ec%8a%a4-%ea%b5%ad%eb%82%b4-ver/"
+        }
+      ]
+    },
+    {
+      "id": "q-mutan-blue-ribbon",
+      "type": "B",
+      "status": "published",
+      "person_id": "seventeen",
+      "place_id": "mutan-apgujeong",
+      "route_id": "apgujeong-cheongdam",
+      "question_en": "At the time of the report, how many years in a row had MUTAN been listed in the Blue Ribbon Survey?",
+      "question_ko": "보도 당시 무탄이 블루 리본 서베이에 오른 것은 몇 년 연속이었나?",
+      "choices_en": ["Three years", "One year", "Five years", "Ten years"],
+      "choices_ko": ["3년", "1년", "5년", "10년"],
+      "answer": 0,
+      "note_en": "Allure Korea wrote that the restaurant had been on the Blue Ribbon Survey three years running.",
+      "note_ko": "얼루어 코리아는 이곳이 3년 연속 블루 리본 서베이에 올랐다고 적었습니다.",
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        }
+      ]
+    },
+    {
+      "id": "q-mutan-area",
+      "type": "C",
+      "status": "published",
+      "person_id": "seventeen",
+      "place_id": "mutan-apgujeong",
+      "route_id": "apgujeong-cheongdam",
+      "question_en": "MUTAN sits in which Seoul neighbourhood?",
+      "question_ko": "무탄은 서울 어느 동네에 있나?",
+      "choices_en": [
+        "Apgujeong, Gangnam-gu",
+        "Cheongdam, Gangnam-gu",
+        "Hannam-dong, Yongsan-gu",
+        "Seongsu-dong, Seongdong-gu"
+      ],
+      "choices_ko": ["강남구 압구정", "강남구 청담", "용산구 한남동", "성동구 성수동"],
+      "answer": 0,
+      "note_en": "The address in both reports is 22 Nonhyeon-ro 176-gil, Gangnam-gu, which is the Apgujeong area.",
+      "note_ko": "두 기사에 적힌 주소는 서울 강남구 논현로176길 22로, 압구정 일대입니다.",
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        },
+        {
+          "outlet": "GQ Korea",
+          "title": "요즘 아이돌이 숨겨둔 핫플레이스(국내ver.)",
+          "title_gloss_en": "Hot places idols keep to themselves (Korea edition)",
+          "date": "2024-10-08",
+          "url": "https://www.gqkorea.co.kr/2024/10/08/%ec%9a%94%ec%a6%98-%ec%95%84%ec%9d%b4%eb%8f%8c%ec%9d%b4-%ec%88%a8%ea%b2%a8%eb%91%94-%ed%95%ab%ed%94%8c%eb%a0%88%ec%9d%b4%ec%8a%a4-%ea%b5%ad%eb%82%b4-ver/"
+        }
+      ]
+    },
+    {
+      "id": "q-yeongcheon-who",
+      "type": "A",
+      "status": "published",
+      "person_id": "nct",
+      "place_id": "yeongcheon-cheongdam",
+      "route_id": "apgujeong-cheongdam",
+      "question_en": "NCT's Doyoung and Haechan introduced a Cheongdam regular spot. Which restaurant was it?",
+      "question_ko": "NCT 도영과 해찬이 단골로 소개한 청담의 식당은?",
+      "choices_en": [
+        "Yeongcheon Yeonghwa (영천영화)",
+        "MUTAN (무탄)",
+        "CHECK YEAST (체크이스트)",
+        "A seafood stall in Noryangjin"
+      ],
+      "choices_ko": ["영천영화", "무탄", "체크이스트", "노량진의 한 수산 가게"],
+      "answer": 0,
+      "note_en": "Allure Korea reports that the two members introduced Yeongcheon Yeonghwa, a barbecue restaurant in Cheongdam, as an NCT regular spot.",
+      "note_ko": "얼루어 코리아는 두 멤버가 청담의 고깃집 영천영화를 NCT의 단골집으로 소개했다고 전했습니다.",
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        }
+      ]
+    },
+    {
+      "id": "q-yeongcheon-trio",
+      "type": "B",
+      "status": "published",
+      "person_id": "nct",
+      "place_id": "yeongcheon-cheongdam",
+      "route_id": "apgujeong-cheongdam",
+      "question_en": "Which three dishes did Doyoung and Haechan name as Yeongcheon Yeonghwa's best menu?",
+      "question_ko": "도영과 해찬이 영천영화의 베스트 메뉴로 꼽은 세 가지는?",
+      "choices_en": [
+        "Yukhoe, yukhoe bibimbap and yuksashimi",
+        "Galbi, kimchi jjigae and cold noodles",
+        "Jokbal, sundae and makguksu",
+        "Chicken feet, gopchang and tteokbokki"
+      ],
+      "choices_ko": ["육회, 육회비빔밥, 육사시미", "갈비, 김치찌개, 냉면", "족발, 순대, 막국수", "닭발, 곱창, 떡볶이"],
+      "answer": 0,
+      "note_en": "The report says the three are what the two members picked, and quotes them saying the yukhoe's texture is something other restaurants do not have.",
+      "note_ko": "기사는 두 멤버가 이 세 가지를 꼽았고, 다른 가게에서는 맛볼 수 없는 찰진 육회 맛이 매력이라고 말했다고 전합니다.",
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        }
+      ]
+    },
+    {
+      "id": "q-yeongcheon-six-plates",
+      "type": "B",
+      "status": "published",
+      "person_id": "nct",
+      "place_id": "yeongcheon-cheongdam",
+      "route_id": "apgujeong-cheongdam",
+      "question_en": "When seven or eight NCT members visited, how many plates of yukhoe did they reportedly eat?",
+      "question_ko": "NCT 멤버 7~8명이 방문했을 때 육회를 몇 접시 먹었다고 보도됐나?",
+      "choices_en": ["Six plates", "Two plates", "Four plates", "Twelve plates"],
+      "choices_ko": ["여섯 접시", "두 접시", "네 접시", "열두 접시"],
+      "answer": 0,
+      "note_en": "Allure Korea writes that the group ate six plates of yukhoe on that visit.",
+      "note_ko": "얼루어 코리아는 그 방문에서 육회만 여섯 접시를 먹었다고 적었습니다.",
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        }
+      ]
+    },
+    {
+      "id": "q-yeongcheon-mention",
+      "type": "A",
+      "status": "published",
+      "person_id": "bts",
+      "place_id": "yeongcheon-cheongdam",
+      "route_id": "apgujeong-cheongdam",
+      "question_en": "An Allure Korea report also names a Cheongdam restaurant visited by BTS's Jungkook and Stray Kids' Bang Chan. Which one?",
+      "question_ko": "얼루어 코리아가 정국과 방찬이 다녀간 곳으로 함께 언급한 청담의 식당은?",
+      "choices_en": [
+        "Yeongcheon Yeonghwa (영천영화)",
+        "MUTAN (무탄)",
+        "CHECK YEAST (체크이스트)",
+        "A bakery in Seongsu-dong"
+      ],
+      "choices_ko": ["영천영화", "무탄", "체크이스트", "성수동의 한 베이커리"],
+      "answer": 0,
+      "note_en": "The article lists Jungkook, Bang Chan and Cha Eun-woo among the celebrities who have been to Yeongcheon Yeonghwa, without dates or menus for them.",
+      "note_ko": "기사는 영천영화에 다녀간 셀럽으로 정국, 방찬, 차은우를 이름만 언급했습니다. 이들의 방문 시기와 메뉴는 나오지 않습니다.",
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        }
+      ]
+    },
+    {
+      "id": "q-checkyeast-who",
+      "type": "A",
+      "status": "published",
+      "person_id": "cha-eunwoo",
+      "place_id": "checkyeast-gangneung",
+      "route_id": null,
+      "question_en": "In Gangneung, which dessert cafe is nicknamed after Cha Eun-woo?",
+      "question_ko": "강릉에서 차은우의 별명이 붙은 디저트 카페는?",
+      "choices_en": [
+        "CHECK YEAST (체크이스트)",
+        "MUTAN (무탄)",
+        "Yeongcheon Yeonghwa (영천영화)",
+        "A cafe in Apgujeong"
+      ],
+      "choices_ko": ["체크이스트", "무탄", "영천영화", "압구정의 한 카페"],
+      "answer": 0,
+      "note_en": "GQ Korea reports that CHECK YEAST's French pie is called the “Cha Eun-woo pie” because he reportedly enjoyed it.",
+      "note_ko": "지큐 코리아는 체크이스트의 프렌치 파이가 차은우가 맛있게 먹고 갔다는 이유로 ‘차은우 파이’로 불린다고 전했습니다.",
+      "sources": [
+        {
+          "outlet": "GQ Korea",
+          "title": "요즘 아이돌이 숨겨둔 핫플레이스(국내ver.)",
+          "title_gloss_en": "Hot places idols keep to themselves (Korea edition)",
+          "date": "2024-10-08",
+          "url": "https://www.gqkorea.co.kr/2024/10/08/%ec%9a%94%ec%a6%98-%ec%95%84%ec%9d%b4%eb%8f%8c%ec%9d%b4-%ec%88%a8%ea%b2%a8%eb%91%94-%ed%95%ab%ed%94%8c%eb%a0%88%ec%9d%b4%ec%8a%a4-%ea%b5%ad%eb%82%b4-ver/"
+        }
+      ]
+    },
+    {
+      "id": "q-checkyeast-pie",
+      "type": "B",
+      "status": "published",
+      "person_id": "cha-eunwoo",
+      "place_id": "checkyeast-gangneung",
+      "route_id": null,
+      "question_en": "What kind of pastry is the “Cha Eun-woo pie” at CHECK YEAST?",
+      "question_ko": "체크이스트의 ‘차은우 파이’는 어떤 종류의 파이인가?",
+      "choices_en": ["A French pie", "An apple pie", "A mille-feuille", "An egg tart"],
+      "choices_ko": ["프렌치 파이", "애플 파이", "밀푀유", "에그타르트"],
+      "answer": 0,
+      "note_en": "GQ Korea names it a French pie, served alongside coffee, drinks and bakery items.",
+      "note_ko": "지큐 코리아는 프렌치 파이라고 적었고, 커피와 음료, 베이커리도 함께 판다고 소개했습니다.",
+      "sources": [
+        {
+          "outlet": "GQ Korea",
+          "title": "요즘 아이돌이 숨겨둔 핫플레이스(국내ver.)",
+          "title_gloss_en": "Hot places idols keep to themselves (Korea edition)",
+          "date": "2024-10-08",
+          "url": "https://www.gqkorea.co.kr/2024/10/08/%ec%9a%94%ec%a6%98-%ec%95%84%ec%9d%b4%eb%8f%8c%ec%9d%b4-%ec%88%a8%ea%b2%a8%eb%91%94-%ed%95%ab%ed%94%8c%eb%a0%88%ec%9d%b4%ec%8a%a4-%ea%b5%ad%eb%82%b4-ver/"
+        }
+      ]
+    },
+    {
+      "id": "q-outside-seoul",
+      "type": "C",
+      "status": "published",
+      "person_id": "cha-eunwoo",
+      "place_id": "checkyeast-gangneung",
+      "route_id": null,
+      "question_en": "Which of these three reported places is outside Seoul?",
+      "question_ko": "보도된 세 곳 중 서울 밖에 있는 곳은?",
+      "choices_en": [
+        "CHECK YEAST, in Gangneung",
+        "MUTAN, in Apgujeong",
+        "Yeongcheon Yeonghwa, in Cheongdam",
+        "All three are in Seoul"
+      ],
+      "choices_ko": ["강릉의 체크이스트", "압구정의 무탄", "청담의 영천영화", "세 곳 모두 서울"],
+      "answer": 0,
+      "note_en": "CHECK YEAST is in Gangneung, Gangwon-do; the other two are both in Gangnam-gu, Seoul.",
+      "note_ko": "체크이스트는 강원특별자치도 강릉시에 있고, 나머지 두 곳은 서울 강남구에 있습니다.",
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        },
+        {
+          "outlet": "GQ Korea",
+          "title": "요즘 아이돌이 숨겨둔 핫플레이스(국내ver.)",
+          "title_gloss_en": "Hot places idols keep to themselves (Korea edition)",
+          "date": "2024-10-08",
+          "url": "https://www.gqkorea.co.kr/2024/10/08/%ec%9a%94%ec%a6%98-%ec%95%84%ec%9d%b4%eb%8f%8c%ec%9d%b4-%ec%88%a8%ea%b2%a8%eb%91%94-%ed%95%ab%ed%94%8c%eb%a0%88%ec%9d%b4%ec%8a%a4-%ea%b5%ad%eb%82%b4-ver/"
+        }
+      ]
+    }
+  ]
+}

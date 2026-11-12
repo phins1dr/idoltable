@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-11-12",
+    "rules": "Shop names and addresses are factual identifiers. Coordinates are from geocoding recorded on 2026-11-12 and are used only for distance estimates and map search links. No shop photo, logo, signboard image or map screenshot is stored or shown."
+  },
+  "areas": [
+    {
+      "id": "gangnam-apgujeong",
+      "name_en": "Apgujeong",
+      "name_ko": "압구정",
+      "district_en": "Gangnam-gu, Seoul",
+      "district_ko": "서울 강남구",
+      "lat": 37.5273,
+      "lng": 127.0303
+    },
+    {
+      "id": "gangnam-cheongdam",
+      "name_en": "Cheongdam",
+      "name_ko": "청담",
+      "district_en": "Gangnam-gu, Seoul",
+      "district_ko": "서울 강남구",
+      "lat": 37.524,
+      "lng": 127.0496
+    },
+    {
+      "id": "gangneung",
+      "name_en": "Gangneung",
+      "name_ko": "강릉",
+      "district_en": "Gangwon-do",
+      "district_ko": "강원특별자치도",
+      "lat": 37.7662,
+      "lng": 128.9129
+    }
+  ],
+  "places": [
+    {
+      "id": "mutan-apgujeong",
+      "status": "published",
+      "name_en": "MUTAN (Apgujeong)",
+      "name_ko": "무탄 압구정 본점",
+      "name_roman": "MUTAN",
+      "category_en": "Chinese dining",
+      "category_ko": "차이니스 다이닝",
+      "area_id": "gangnam-apgujeong",
+      "address_ko": "서울 강남구 논현로176길 22 1층",
+      "address_en": "22 Nonhyeon-ro 176-gil, Gangnam-gu, Seoul",
+      "address_en_status": "romanized",
+      "address_en_note_en": "Romanized from the Korean road-name address by road-name rules; not yet checked against the official English address database.",
+      "address_en_note_ko": "한글 도로명주소를 도로명 표기 규칙으로 로마자화한 값입니다. 공식 영문주소 DB와 대조하지는 않았습니다.",
+      "lat": 37.5273,
+      "lng": 127.0303,
+      "coord_source": "Kakao Map geocoding, 2026-11-12",
+      "place_ids": {
+        "google": null,
+        "kakao": "1696571508"
+      },
+      "hours": null,
+      "hours_checked": "2026-11-12",
+      "what_ordered": [
+        {
+          "en": "Chili yulinji (crispy chicken in chili sauce)",
+          "ko": "고추 유린기"
+        },
+        {
+          "en": "Menbosha (fried shrimp toast)",
+          "ko": "멘보샤"
+        },
+        {
+          "en": "Steak truffle jjajangmyeon",
+          "ko": "스테이크 트러플 자장면"
+        }
+      ],
+      "report_note_en": "Allure Korea and GQ Korea both report that Mingyu and Jeonghan ordered chili yulinji, menbosha and the steak truffle jjajangmyeon here. Allure Korea adds that the restaurant had been on the Blue Ribbon Survey three years running, and credits Mingyu's Instagram as the original post.",
+      "report_note_ko": "얼루어 코리아와 지큐 코리아 모두 민규와 정한이 이곳에서 고추 유린기, 멘보샤, 스테이크 트러플 자장면을 주문했다고 전합니다. 얼루어 코리아는 3년 연속 블루 리본 서베이에 오른 곳이라고 덧붙였고, 원출처로 민규의 인스타그램을 표기했습니다.",
+      "visitors": [
+        {
+          "person_id": "seventeen",
+          "evidence": "menu"
+        }
+      ],
+      "route_ids": [
+        "apgujeong-cheongdam"
+      ],
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        },
+        {
+          "outlet": "GQ Korea",
+          "title": "요즘 아이돌이 숨겨둔 핫플레이스(국내ver.)",
+          "title_gloss_en": "Hot places idols keep to themselves (Korea edition)",
+          "date": "2024-10-08",
+          "url": "https://www.gqkorea.co.kr/2024/10/08/%ec%9a%94%ec%a6%98-%ec%95%84%ec%9d%b4%eb%8f%8c%ec%9d%b4-%ec%88%a8%ea%b2%a8%eb%91%94-%ed%95%ab%ed%94%8c%eb%a0%88%ec%9d%b4%ec%8a%a4-%ea%b5%ad%eb%82%b4-ver/"
+        }
+      ]
+    },
+    {
+      "id": "yeongcheon-cheongdam",
+      "status": "published",
+      "name_en": "Yeongcheon Yeonghwa (Cheongdam)",
+      "name_ko": "영천영화 청담점",
+      "name_roman": "Yeongcheon Yeonghwa",
+      "category_en": "Korean barbecue and yukhoe",
+      "category_ko": "고깃집 · 육회",
+      "area_id": "gangnam-cheongdam",
+      "address_ko": "서울 강남구 도산대로90길 3 상민빌딩 1층",
+      "address_en": "3 Dosan-daero 90-gil, Gangnam-gu, Seoul",
+      "address_en_status": "romanized",
+      "address_en_note_en": "Romanized from the Korean road-name address by road-name rules; not yet checked against the official English address database.",
+      "address_en_note_ko": "한글 도로명주소를 도로명 표기 규칙으로 로마자화한 값입니다. 공식 영문주소 DB와 대조하지는 않았습니다.",
+      "lat": 37.524,
+      "lng": 127.0496,
+      "coord_source": "Kakao Map geocoding, 2026-11-12",
+      "place_ids": {
+        "google": null,
+        "kakao": "1996999092"
+      },
+      "hours": null,
+      "hours_checked": "2026-11-12",
+      "what_ordered": [
+        {
+          "en": "Yukhoe (raw beef tartare)",
+          "ko": "육회"
+        },
+        {
+          "en": "Yukhoe bibimbap",
+          "ko": "육회비빔밥"
+        },
+        {
+          "en": "Yuksashimi (raw beef slices)",
+          "ko": "육사시미"
+        }
+      ],
+      "menu_label_en": "The menu they named as best",
+      "menu_label_ko": "베스트 메뉴로 꼽은 것",
+      "report_note_en": "Allure Korea reports that Doyoung and Haechan called this restaurant a group regular spot and named yukhoe, yukhoe bibimbap and yuksashimi as its best menu; when seven or eight members visited, they ate six plates of yukhoe. The same article names Jungkook, Bang Chan and Cha Eun-woo among other celebrities who have been here, without dishes or dates for them.",
+      "report_note_ko": "얼루어 코리아는 도영과 해찬이 이곳을 NCT의 단골집으로 소개하며 육회·육회비빔밥·육사시미를 베스트 메뉴로 꼽았다고 전합니다. 멤버 7~8명이 방문했을 때 육회만 여섯 접시를 먹었다는 일화도 실렸습니다. 같은 기사가 정국, 방찬, 차은우를 이곳에 다녀간 셀럽으로 이름만 언급하며, 이들의 메뉴와 시기는 밝히지 않습니다.",
+      "visitors": [
+        {
+          "person_id": "nct",
+          "evidence": "menu"
+        },
+        {
+          "person_id": "bts",
+          "evidence": "mention"
+        },
+        {
+          "person_id": "straykids",
+          "evidence": "mention"
+        },
+        {
+          "person_id": "cha-eunwoo",
+          "evidence": "mention"
+        }
+      ],
+      "route_ids": [
+        "apgujeong-cheongdam"
+      ],
+      "sources": [
+        {
+          "outlet": "Allure Korea",
+          "title": "아이돌 출몰 맛집 리스트.txt",
+          "title_gloss_en": "Idol hang-out restaurant list",
+          "date": "2024-02-23",
+          "url": "https://www.allurekorea.com/2024/02/23/%ec%95%84%ec%9d%b4%eb%8f%8c-%ec%b6%9c%eb%aa%b0-%eb%a7%9b%ec%a7%91-%eb%a6%ac%ec%8a%a4%ed%8a%b8-txt/"
+        }
+      ]
+    },
+    {
+      "id": "checkyeast-gangneung",
+      "status": "published",
+      "name_en": "CHECK YEAST",
+      "name_ko": "체크이스트",
+      "name_roman": "CHECK YEAST",
+      "category_en": "Dessert cafe",
+      "category_ko": "디저트 카페",
+      "area_id": "gangneung",
+      "address_ko": "강원특별자치도 강릉시 강변북길 153 1층",
+      "address_en": "153 Gangbyeonbuk-gil, Gangneung-si, Gangwon-do, Republic of Korea",
+      "address_en_status": "romanized",
+      "address_en_note_en": "Romanized from the Korean road-name address by road-name rules; not yet checked against the official English address database.",
+      "address_en_note_ko": "한글 도로명주소를 도로명 표기 규칙으로 로마자화한 값입니다. 공식 영문주소 DB와 대조하지는 않았습니다.",
+      "lat": 37.7662,
+      "lng": 128.9129,
+      "coord_source": "Kakao geocoding, 2026-11-12",
+      "place_ids": {
+        "google": null,
+        "kakao": null
+      },
+      "hours": null,
+      "hours_checked": "2026-11-12",
+      "what_ordered": [
+        {
+          "en": "French pie, locally nicknamed the “Cha Eun-woo pie”",
+          "ko": "프렌치 파이 (일명 ‘차은우 파이’)"
+        }
+      ],
+      "report_note_en": "GQ Korea reports that the cafe's French pie is nicknamed the “Cha Eun-woo pie” because he reportedly ate it and liked it. The same report describes a pastel interior, coffee and bakery, and a shop-like selection of mugs, stationery and food. The article does not say when he visited.",
+      "report_note_ko": "지큐 코리아는 이곳의 프렌치 파이가 차은우가 맛있게 먹고 갔다는 이유로 ‘차은우 파이’로 불린다고 전합니다. 파스텔 톤의 실내와 커피·베이커리, 머그잔·문구 같은 소품까지 갖춘 가게라고 소개했습니다. 방문 시기는 기사에 없습니다.",
+      "visitors": [
+        {
+          "person_id": "cha-eunwoo",
+          "evidence": "menu"
+        }
+      ],
+      "route_ids": [],
+      "sources": [
+        {
+          "outlet": "GQ Korea",
+          "title": "요즘 아이돌이 숨겨둔 핫플레이스(국내ver.)",
+          "title_gloss_en": "Hot places idols keep to themselves (Korea edition)",
+          "date": "2024-10-08",
+          "url": "https://www.gqkorea.co.kr/2024/10/08/%ec%9a%94%ec%a6%98-%ec%95%84%ec%9d%b4%eb%8f%8c%ec%9d%b4-%ec%88%a8%ea%b2%a8%eb%91%94-%ed%95%ab%ed%94%8c%eb%a0%88%ec%9d%b4%ec%8a%a4-%ea%b5%ad%eb%82%b4-ver/"
+        }
+      ]
+    }
+  ]
+}
