@@ -20,7 +20,7 @@
   <p class="note">390 × 844 미리보기. 주소 뒤 <code>#?ch=...</code> 처럼 붙이면 그 링크로 열립니다.</p>
 <script>
   var q = (location.hash.slice(1) || '').replace(/^\?/, '');
-  document.getElementById('frame').src = './index.html?pv=1' + (q ? '&' + q : '');
+  document.getElementById('frame').src = './index.html?pv=1&cb=' + Date.now() + (q ? '&' + q : '');
 </script>
 </body>
 </html>
