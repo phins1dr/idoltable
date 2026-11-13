@@ -58,12 +58,11 @@ KPOP.2026W46.덕후.18/30.3.BTS.지수
 
 ## Firebase (실시간 랭킹)
 
-- 프로젝트 `wr-quiz-fceaa` (휠체어럭비 퀴즈와 같은 프로젝트, Spark 무료)
-- 컬렉션은 `idol_scores` 하나만 사용. 럭비 컬렉션(players/weeks/hall)은 읽지도 쓰지도 않음
+- 전용 프로젝트 `idol-quiz-38b09` (Spark 무료, 럭비 퀴즈와 완전 분리)
+- 컬렉션 `idol_scores` 사용
 - 문서 ID `{uid}_{시즌}` = 1인 1행
 - 익명 로그인 사용 → `firebase.auth().signInAnonymously()`
-- **보안 규칙 게시 필요**: `firestore.rules.idol`을 콘솔 규칙 탭에 붙여넣고 게시.
-  게시 전에는 권한 오류로 실시간 랭킹이 꺼지고 코드 순위표로 자동 폴백합니다.
+- Firestore 서울 리전(asia-northeast3)에 `idol_scores` 전용 보안 규칙 게시 완료됨.
 
 ## 로컬 실행
 

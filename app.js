@@ -20,14 +20,15 @@
   var KST_MS = 9 * 3600000;
   var MAX_CODES = 30;
 
-  /* 실시간 랭킹 — 럭비 퀴즈와 같은 Firebase 프로젝트, 컬렉션은 idol_ 접두사만 사용 */
+  /* 실시간 랭킹 — 아이돌 퀴즈 전용 Firebase 프로젝트 (idol-quiz-38b09) */
   var FIREBASE_CONFIG = {
-    apiKey: 'AIzaSyC7XmqS9j4qzqKHZgkeF6m6GhZacFDXUBU',
-    authDomain: 'wr-quiz-fceaa.firebaseapp.com',
-    projectId: 'wr-quiz-fceaa',
-    storageBucket: 'wr-quiz-fceaa.firebasestorage.app',
-    messagingSenderId: '71974210293',
-    appId: '1:71974210293:web:f0da4eb94d73427e0213bc'
+    apiKey: 'AIzaSyCqgTFpfoR1HMrG6HGoD8QXjb52G4YGE2o',
+    authDomain: 'idol-quiz-38b09.firebaseapp.com',
+    projectId: 'idol-quiz-38b09',
+    storageBucket: 'idol-quiz-38b09.firebasestorage.app',
+    messagingSenderId: '83149703805',
+    appId: '1:83149703805:web:3181603c5bd1c86b953f14',
+    measurementId: 'G-BLKNPEL1Q2'
   };
   var SDK_URL = {
     app: 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js',
