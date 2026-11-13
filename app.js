@@ -1710,7 +1710,7 @@
     $('btnLeague').addEventListener('click', function () {
       var entry = resultEntry();
       addRoomCode(currentCode());
-      boardDiff = state.level;
+      boardDiff = 0;   /* 결과의 '전체 순위'와 같은 기준으로 연다 */
       showView('league');
       renderLeagueView();
       renderHome();
