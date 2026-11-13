@@ -918,7 +918,7 @@
 
     var myTeam = currentTeam();
     $('chVsMyTeamLabel').textContent = myTeam ? teamIcon(myTeam) + ' ' + myTeam : '내 팀';
-    $('chVsEnemyTeamLabel').textContent = c.team;
+    $('chVsFriendTeamLabel').textContent = teamIcon(c.team) + ' ' + c.team;
     $('chQuestion').textContent = myTeam ? '우리 팀이 이길 수 있어요?' : '내 응원팀을 골라 팀 대항으로 받아줘요';
 
     var roomBtn = $('btnChallengeRoom');
