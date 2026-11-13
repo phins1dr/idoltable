@@ -624,6 +624,7 @@
   /* ---------------- boot ---------------- */
 
   function init() {
+    if (/[?&]pv=1/.test(location.search)) document.documentElement.className += ' pv';
     loadSaved();
     state.level = save.diff;
     renderHome();

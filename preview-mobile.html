@@ -19,8 +19,8 @@
   <div class="phone"><iframe id="frame" title="모바일 미리보기"></iframe></div>
   <p class="note">390 × 844 미리보기. 주소 뒤 <code>#?ch=...</code> 처럼 붙이면 그 링크로 열립니다.</p>
 <script>
-  var q = location.hash.slice(1) || '';
-  document.getElementById('frame').src = './index.html' + q;
+  var q = (location.hash.slice(1) || '').replace(/^\?/, '');
+  document.getElementById('frame').src = './index.html?pv=1' + (q ? '&' + q : '');
 </script>
 </body>
 </html>

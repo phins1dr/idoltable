@@ -1592,3 +1592,7 @@ html, body {
   margin-left: 4px;
   vertical-align: 1px;
 }
+
+/* 미리보기 프레임(?pv=1)에서만 스크롤바를 감춘다 — 실제 화면에는 영향 없음 */
+.pv { scrollbar-width: none; -ms-overflow-style: none; }
+.pv::-webkit-scrollbar { display: none; width: 0; height: 0; }
