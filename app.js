@@ -52,9 +52,9 @@
 
   /* 난이도 — 정답 1개당 점수 가중치 */
   var LEVELS = [
-    { id: 1, name: '쉬움', icon: '🌱', weight: 1, desc: '대표곡·가사 도입부·기본 프로필' },
-    { id: 2, name: '보통', icon: '🎧', weight: 2, desc: '타이틀곡·방송 장면·유닛' },
-    { id: 3, name: '덕후', icon: '👑', weight: 3, desc: 'B면·자체 예능 TMI·기록 디테일' }
+    { id: 1, name: '쉬움', tag: 'Lv.1', weight: 1, desc: '대표곡·가사 도입부·기본 프로필' },
+    { id: 2, name: '보통', tag: 'Lv.2', weight: 2, desc: '타이틀곡·방송 장면·유닛' },
+    { id: 3, name: '덕후', tag: 'Lv.3', weight: 3, desc: 'B면·자체 예능 TMI·기록 디테일' }
   ];
 
   var DATA = null;
@@ -150,7 +150,7 @@
     return levelOf(map[s] || 2);
   }
 
-  function levelTag(lv) { var l = levelOf(lv); return l.icon + ' ' + l.name; }
+  function levelTag(lv) { var l = levelOf(lv); return l.tag + ' ' + l.name; }
 
   function poolCounts(mode, level) {
     if (!DATA || !DATA.questions) return { n: 0 };
@@ -723,7 +723,7 @@
     }
     var L = levelOf(state.level);
     var counts = poolCounts('all', L.id);
-    $('diffCaption').textContent = L.icon + ' ' + L.name + ' 난이도 · 정답 1개 = ' + L.weight + '점' +
+    $('diffCaption').textContent = L.tag + ' ' + L.name + ' 난이도 · 정답 1개 = ' + L.weight + '점' +
       (counts.n ? ' · 이 난이도 문제 ' + counts.n + '/' + counts.total : '');
   }
 
@@ -1124,7 +1124,7 @@
     } else {
       deltaEl.className = 'card-delta';
       deltaEl.hidden = false;
-      deltaEl.textContent = L.icon + ' ' + L.name + ' 난이도 · 정답 1개 ' + L.weight + '점 · 최대 ' + maxPoints + '점';
+      deltaEl.textContent = L.tag + ' ' + L.name + ' 난이도 · 정답 1개 ' + L.weight + '점 · 최대 ' + maxPoints + '점';
     }
 
     if (state.challenge) state.level = save.diff;   /* 도전장 난이도는 그 판에서만 */
@@ -1145,7 +1145,7 @@
     $('resTeamName').textContent = team;
     $('resTeamPoints').textContent = r.p;
     $('resTitle').textContent = teamIcon(team) + ' ' + team + '에 ' + r.p + '점!';
-    $('resDiffLine').textContent = L.icon + ' ' + L.name + ' 난이도 · 정답 1개 = ' + L.weight + '점';
+    $('resDiffLine').textContent = L.tag + ' ' + L.name + ' 난이도 · 정답 1개 = ' + L.weight + '점';
 
     var row = myTeamRow();
     if (row) {
@@ -1254,7 +1254,7 @@
   function shareText(r) {
     var team = state.team || currentTeam() || '무소속';
     var L = levelOf(r.lv);
-    var head = '⚔️ ' + teamIcon(team) + ' ' + team + ' · ' + L.icon + L.name + ' ' + r.c + '/' + r.tot + ' (' + r.p + '점)';
+    var head = '💥 ' + teamIcon(team) + ' ' + team + ' · ' + L.tag + ' ' + L.name + ' ' + r.c + '/' + r.tot + ' (' + r.p + '점)';
     var tail;
     if (state.challenge) {
       if (r.c > state.challenge.ch) tail = '우리 팀이 이겼다! 같은 문제로 다시 해볼래?';
@@ -1370,7 +1370,7 @@
           '<span class="prank">' + e.rank + '</span>' +
           '<span class="pteam">' + teamIcon(e.team) + '</span>' +
           '<span class="pnick">' + esc(e.nick) + (e.mine ? '<span class="board-me-pill">나</span>' : '') + '</span>' +
-          '<span class="pdiff">' + levelOf(e.lv).icon + '</span>' +
+          '<span class="pdiff">' + levelOf(e.lv).tag + '</span>' +
           '<span class="pstreak">🔥' + (e.streak || 0) + '</span>' +
           '<span class="pscore">' + e.p + '<span class="pscore-unit">점</span></span>' +
         '</div>';
