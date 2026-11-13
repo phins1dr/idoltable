@@ -1,0 +1,107 @@
+// Firebase Firestore 보안 규칙 — 아이돌 퀴즈 실시간 랭킹용
+//
+// 사용법
+//   Firebase 콘솔 → Firestore Database → 규칙 탭 → 아래 내용 전체를 붙여넣고 [게시].
+//   이 파일은 **합쳐진 전체 규칙**입니다. 위쪽 players / weeks / hall 은
+//   휠체어럭비 퀴즈(phins1dr/seoul-wr-squad) 규칙을 2026-11-13 기준으로 그대로 옮긴 것이고,
+//   맨 아래 idol_scores 블록만 새로 추가된 부분입니다.
+//   → 럭비 쪽 규칙이 그 뒤에 바뀌었다면, 이 파일 전체를 붙이지 말고
+//     `match /idol_scores/...` 블록만 복사해 기존 규칙의 마지막 `}` 앞에 넣으세요.
+//
+// 아이돌 퀴즈가 쓰는 것은 idol_scores 하나뿐입니다.
+// 럭비 컬렉션(players / weeks / hall)은 이 앱이 읽지도 쓰지도 않습니다.
+//
+// 규칙이 게시되지 않으면 앱은 자동으로 '코드 순위표'(localStorage + URL)로 내려갑니다.
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{db}/documents {
+
+    /* ---------- 휠체어럭비 퀴즈 (기존, 변경 없음) ---------- */
+    function signedIn(uid) { return request.auth != null && request.auth.uid == uid; }
+    function okNick(n) { return n is string && n.size() > 0 && n.size() <= 14; }
+    function okGrade(g) { return g is int && g >= 0 && g <= 6; }
+    function okLang(l) { return l == 'ko' || l == 'en'; }
+
+    match /players/{uid} {
+      allow read: if true;
+      allow create, update: if signedIn(uid)
+        && request.resource.data.keys().hasOnly(['nick', 'total', 'grade', 'en', 'at'])
+        && okNick(request.resource.data.nick)
+        && request.resource.data.total is int
+        && request.resource.data.total >= 0 && request.resource.data.total <= 200000
+        && okGrade(request.resource.data.grade)
+        && request.resource.data.en is bool
+        && request.resource.data.at == request.time;
+    }
+
+    match /weeks/{wk}/players/{uid} {
+      allow read: if true;
+      allow create, update: if signedIn(uid)
+        && wk.matches('^[0-9]{4}-W[0-9]{2}$')
+        && request.resource.data.keys().hasOnly(['nick', 'xp', 'grade', 'en', 'at'])
+        && okNick(request.resource.data.nick)
+        && request.resource.data.xp is int
+        && request.resource.data.xp >= 0 && request.resource.data.xp <= 30000
+        && okGrade(request.resource.data.grade)
+        && request.resource.data.en is bool
+        && request.resource.data.at == request.time;
+    }
+
+    match /hall/{id} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && okLang(request.resource.data.lang)
+        && id == request.auth.uid + '_' + request.resource.data.lang
+        && request.resource.data.keys().hasOnly(['nick', 'lang', 'at'])
+        && okNick(request.resource.data.nick)
+        && request.resource.data.at == request.time;
+      allow update, delete: if false;
+    }
+
+    /* ---------- 아이돌 퀴즈: 주간 그룹 대항 랭킹 (신규) ----------
+       · 문서 ID = `{uid}_{시즌}`  → 한 사람은 한 시즌에 한 행만 (1인 1행)
+       · 읽기는 누구나 (공개 순위표)
+       · 쓰기는 익명 로그인한 본인 행만, 정해진 칸만
+       · 점수 상한 검증: points == correct * level  (level 1~3 가중치)
+                          correct <= total, total <= 20
+       · 점수는 줄일 수 없음(update 시 이전 점수 이상만)
+       · 지우기는 금지 (명예의 전당 무결성) */
+    function idolSeasonOk(s) { return s is string && s.matches('^[0-9]{4}W[0-9]{2}$'); }
+    function idolNickOk(n) { return n is string && n.size() > 0 && n.size() <= 12; }
+    function idolTeamOk(t) { return t is string && t.size() > 0 && t.size() <= 12; }
+
+    function idolRowOk(d) {
+      return d.keys().hasOnly(['nick', 'team', 'season', 'points', 'correct', 'total', 'level', 'streak', 'at'])
+        && idolNickOk(d.nick)
+        && idolTeamOk(d.team)
+        && idolSeasonOk(d.season)
+        && d.level is int && d.level >= 1 && d.level <= 3
+        && d.total is int && d.total >= 1 && d.total <= 20
+        && d.correct is int && d.correct >= 0 && d.correct <= d.total
+        && d.points is int && d.points == d.correct * d.level
+        && d.streak is int && d.streak >= 0 && d.streak <= 400
+        && d.at == request.time;
+    }
+
+    match /idol_scores/{docId} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && idolRowOk(request.resource.data)
+        && docId == request.auth.uid + '_' + request.resource.data.season;
+      allow update: if request.auth != null
+        && idolRowOk(request.resource.data)
+        && docId == request.auth.uid + '_' + resource.data.season
+        && docId == request.auth.uid + '_' + request.resource.data.season
+        && request.resource.data.points >= resource.data.points;
+      allow delete: if false;
+    }
+
+    /* 지난 시즌 명예의 전당을 서버에 남길 때 쓸 자리 (지금은 쓰지 않음) */
+    match /idol_hall/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}

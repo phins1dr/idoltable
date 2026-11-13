@@ -2,11 +2,30 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>Idol Quiz — K-pop 덕력고사</title>
+<title>Idol Quiz — K-pop 덕력고사 · 팬덤 대항전</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0c0e14">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="누가누가 최애를 제일 잘 맞추나! BTS, 세븐틴, 스키즈 10초 스피드 퀴즈 배틀. 내 덕력 등급을 확인하고 친구에게 도전장을 보내보세요.">
+<meta name="description" content="내 최애 그룹을 골라 10문제에 도전하세요. 정답마다 우리 팀에 점수가 쌓이고, 매주 월요일 리셋되는 팬덤 대항 순위표에서 1위를 겨룹니다.">
+<link rel="canonical" href="https://phins1dr.github.io/idoltable/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Link preview (KakaoTalk · X · iMessage) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Idol Quiz">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://phins1dr.github.io/idoltable/">
+<meta property="og:title" content="팬덤 대항전 · K-pop 덕력고사">
+<meta property="og:description" content="내 최애 그룹으로 10문제 배틀. 정답마다 우리 팀에 점수가 쌓이고, 매주 팬덤 순위표가 바뀝니다.">
+<meta property="og:image" content="https://phins1dr.github.io/idoltable/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="팬덤 대항전 — 내 최애 그룹으로 겨루는 K-pop 덕력고사">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="팬덤 대항전 · K-pop 덕력고사">
+<meta name="twitter:description" content="내 최애 그룹으로 10문제 배틀. 정답마다 우리 팀에 점수가 쌓이고, 매주 팬덤 순위표가 바뀝니다.">
+<meta name="twitter:image" content="https://phins1dr.github.io/idoltable/assets/og-cover.png">
+
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
@@ -22,17 +41,17 @@
 
   <!-- Top bar -->
   <header class="topbar">
-    <a class="brand" href="#/" id="brandLogo">
-      <span class="brand-badge">QUIZ</span>
+    <a class="brand" href="./" id="brandLogo">
+      <span class="brand-badge">VS</span>
       <span class="brand-text">Idol Quiz</span>
     </a>
     <div class="topbar-stats">
-      <div class="stat-pill" title="연속 도전 스트릭">
+      <div class="stat-pill" title="연속 참여">
         <span class="pill-icon">🔥</span>
-        <span class="pill-val" id="streakVal">1일차</span>
+        <span class="pill-val" id="streakVal">새 도전</span>
       </div>
-      <div class="stat-pill" title="획득한 배지">
-        <span class="pill-icon">🏆</span>
+      <div class="stat-pill" title="내 최고 기록">
+        <span class="pill-icon" id="badgeIcon">🌱</span>
         <span class="pill-val" id="badgeVal">새싹</span>
       </div>
     </div>
@@ -40,42 +59,154 @@
 
   <!-- VIEW: HOME -->
   <section class="view" id="view-home">
-    <div class="hero">
-      <p class="hero-eyebrow">⚡ K-POP SPEED TRIVIA</p>
-      <h1 class="hero-title">당신의 K-pop 덕력은<br><span class="gradient-text">몇 등급인가요?</span></h1>
-      <p class="hero-desc">가사 빈칸부터 레전드 예능 TMI까지!<br>10초 안에 맞히고 전국 팬덤 순위에 도전하세요.</p>
-    </div>
 
-    <!-- Daily Quick Play Card -->
-    <div class="daily-card" id="btnDailyPlay">
-      <div class="daily-badge">TODAY'S SPECIAL</div>
-      <div class="daily-content">
-        <h2 class="daily-title">🔥 오늘의 데일리 올스타 10문항</h2>
-        <p class="daily-sub">매일 자정 갱신 · 누구나 풀 수 있는 전역 통합전</p>
+    <!-- 도전장 도착 -->
+    <div class="challenge-card" id="challengeBanner" hidden>
+      <div class="challenge-glow" aria-hidden="true"></div>
+      <p class="challenge-eyebrow">⚔️ 도전장 도착 · 팀 대항</p>
+      <div class="challenge-friend">
+        <span class="challenge-avatar" id="chAvatar">😎</span>
+        <div class="challenge-friend-text">
+          <p class="challenge-line"><b id="chFriendTeam">💜 BTS</b> 팬 <b id="chFriendName">친구</b> 님이<br><span id="chScoreLine">10문제 중 8문제</span>를 맞혔어요.</p>
+          <p class="challenge-tier"><span class="ch-diff" id="chDiff">보통 난이도</span> <span id="chFriendTier">💎 성골 1등 덕후</span></p>
+        </div>
       </div>
-      <button class="btn-play-daily" type="button">
-        <span>도전하기</span>
+      <div class="challenge-vs">
+        <div class="ch-vs-col">
+          <span class="ch-vs-label" id="chVsMyTeamLabel">내 팀</span>
+          <span class="ch-vs-value" id="chVsFriend">8</span>
+        </div>
+        <span class="ch-vs-mark">VS</span>
+        <div class="ch-vs-col ch-vs-mine">
+          <span class="ch-vs-label" id="chVsEnemyTeamLabel">상대</span>
+          <span class="ch-vs-value">?</span>
+        </div>
+      </div>
+      <p class="challenge-question" id="chQuestion">이길 수 있어요?</p>
+      <button class="btn-challenge" id="btnAcceptChallenge" type="button">
+        <span>도전 수락하고 바로 시작</span>
         <span class="arrow">→</span>
       </button>
+      <p class="challenge-note">친구와 <b>같은 10문제</b>로 겨룹니다 · 문제당 10초</p>
+      <button class="challenge-skip" id="btnChallengeRoom" type="button" hidden>🏆 이 방 순위표 보기</button>
+      <button class="challenge-skip" id="btnSkipChallenge" type="button">도전장 없이 내 오늘의 퀴즈 풀기</button>
+    </div>
+
+    <div class="hero" id="homeHero">
+      <p class="hero-eyebrow">⚔️ FANDOM BATTLE · <span id="heroWeek">2026 W46</span></p>
+      <h1 class="hero-title">내 최애 그룹을 위해<br><span class="gradient-text">10문제를 맞혀라</span></h1>
+      <p class="hero-desc" id="heroDesc">정답마다 내 응원팀에 10점씩 쌓입니다.<br>매주 리셋되는 팬덤 순위표에서 우리 팀을 1위로.</p>
+
+      <div class="my-team" id="myTeamBox">
+        <span class="my-team-label">내 응원팀</span>
+        <button class="team-chip" id="btnTeamPick" type="button">
+          <span class="team-chip-name" id="myTeamChip">그룹 고르기</span>
+          <span class="team-chip-icon" id="myTeamIcon">＋</span>
+        </button>
+      </div>
+
+      <div class="team-picker" id="teamPicker" hidden>
+        <p class="team-picker-title">응원하는 그룹을 고르세요</p>
+        <div class="team-grid" id="teamGrid"><!-- JS --></div>
+        <div class="team-custom">
+          <input class="team-custom-input" id="teamCustomInput" type="text" maxlength="12" placeholder="목록에 없으면 직접 입력" enterkeyhint="done">
+          <button class="team-custom-btn" id="btnTeamCustom" type="button">확인</button>
+        </div>
+        <p class="team-picker-note">정답 1개 = 10점, 고른 팀에 적립됩니다</p>
+      </div>
+    </div>
+
+    <!-- 오늘의 10문제 -->
+    <div class="daily-card" id="btnDailyPlay">
+      <div class="daily-top">
+        <span class="daily-badge">TODAY'S 10</span>
+        <span class="daily-countdown" id="dailyCountdown">자정까지 --:--:--</span>
+      </div>
+      <div class="daily-content">
+        <h2 class="daily-title" id="dailyTitle">🔥 오늘의 10문항</h2>
+        <p class="daily-sub" id="dailySub">매일 자정 새 문제 · 오늘 하루 모두 같은 문제</p>
+      </div>
+      <div class="diff-pick" id="diffPick" role="group" aria-label="난이도 선택">
+        <button class="dp-btn" type="button" data-lv="1"><span class="dp-name">🌱 쉬움</span><span class="dp-pt">1점</span></button>
+        <button class="dp-btn" type="button" data-lv="2"><span class="dp-name">🎵 보통</span><span class="dp-pt">2점</span></button>
+        <button class="dp-btn" type="button" data-lv="3"><span class="dp-name">👑 덕후</span><span class="dp-pt">3점</span></button>
+      </div>
+      <p class="diff-caption" id="diffCaption">보통 난이도 · 정답 1개 = 2점</p>
+      <div class="daily-mine" id="dailyMine" hidden>
+        <span class="daily-mine-label">오늘 기록</span>
+        <span class="daily-mine-score" id="dailyMineScore">8 / 10</span>
+        <span class="daily-mine-delta" id="dailyMineDelta">어제보다 +2</span>
+      </div>
+      <button class="btn-play-daily" type="button">
+        <span id="dailyBtnLabel">응원팀 고르고 시작</span>
+        <span class="arrow">→</span>
+      </button>
+    </div>
+
+    <!-- 그룹 대항 순위표 (메인) -->
+    <div class="group-board-card" id="groupBoardCard">
+      <div class="group-board-head">
+        <div>
+          <h2 class="gb-title">🏆 이번 주 그룹 순위표</h2>
+          <p class="gb-sub" id="homeBoardSub">2026 W46 · 11.9 ~ 11.15</p>
+          <p class="gb-live" id="homeLiveBadge">● 연결 중</p>
+        </div>
+        <span class="gb-deadline" id="homeBoardDeadline">마감 2일</span>
+      </div>
+      <div class="diff-tabs" id="homeDiffTabs" role="group" aria-label="난이도 기준">
+        <button class="dt-btn on" type="button" data-diff="0">전체</button>
+        <button class="dt-btn" type="button" data-diff="1">🌱 쉬움</button>
+        <button class="dt-btn" type="button" data-diff="2">🎵 보통</button>
+        <button class="dt-btn" type="button" data-diff="3">👑 덕후</button>
+      </div>
+      <p class="diff-caption" id="homeDiffCaption">전체 = 난이도별 가중치 합산 (쉬움1·보통2·덕후3점)</p>
+      <div class="group-board" id="homeGroupBoard"><!-- JS --></div>
+      <button class="btn-board" id="btnOpenLeague" type="button">
+        <span>순위표 열기 · 친구 코드 붙이기</span>
+        <span class="arrow">→</span>
+      </button>
+    </div>
+
+    <!-- 개인 기록 (보조) -->
+    <div class="record-card" id="recordCard" hidden>
+      <div class="record-head">
+        <h3 class="record-title">내 덕력 기록</h3>
+        <span class="record-sub">개인 기록</span>
+      </div>
+      <div class="record-grid">
+        <div class="record-cell">
+          <span class="record-icon">🔥</span>
+          <span class="record-val" id="recStreak">3일</span>
+          <span class="record-label">연속 참여</span>
+        </div>
+        <div class="record-cell">
+          <span class="record-icon">🏆</span>
+          <span class="record-val" id="recBest">9/10</span>
+          <span class="record-label">최고 기록</span>
+        </div>
+        <div class="record-cell">
+          <span class="record-icon">📅</span>
+          <span class="record-val" id="recDays">5일</span>
+          <span class="record-label">누적 참여</span>
+        </div>
+      </div>
+      <p class="record-line" id="recordLine">어제 6문제 → 오늘 8문제, 한 문제 더 맞혔어요.</p>
     </div>
 
     <!-- Category Selector -->
     <div class="section-head">
       <h3 class="section-title">그룹별 집중 영역</h3>
-      <span class="section-tag">10문제 스피드런</span>
+      <span class="section-tag">같은 문제 · 팀 점수 적립</span>
     </div>
 
-    <div class="category-grid" id="categoryGrid">
-      <!-- Injected by JS -->
-    </div>
+    <div class="category-grid" id="categoryGrid"><!-- JS --></div>
 
-    <!-- Bottom Info -->
     <footer class="home-foot">
       <p class="foot-note">공개 가사 및 공식 방송·인터뷰 자료 기반으로 제작되었습니다.</p>
       <div class="foot-links">
         <span class="foot-chip">서버비 0원</span>
         <span class="foot-chip">회원가입 없음</span>
-        <span class="foot-chip">실시간 로컬 연산</span>
+        <span class="foot-chip">기록은 이 기기에만</span>
       </div>
     </footer>
   </section>
@@ -99,18 +230,25 @@
       </div>
     </div>
 
-    <!-- Question Box -->
+    <div class="battle-strip" id="battleStrip">
+      <div class="bs-side bs-mine">
+        <span class="bs-team" id="bsMyTeam">💜 BTS</span>
+        <span class="bs-points"><b id="bsMyPoints">0</b>점</span>
+      </div>
+      <div class="bs-mid" id="bsVs" hidden>VS</div>
+      <div class="bs-side bs-enemy" id="bsEnemy" hidden>
+        <span class="bs-team" id="bsEnemyTeam">💎 세븐틴</span>
+        <span class="bs-points"><b id="bsEnemyScore">8</b>문제</span>
+      </div>
+    </div>
+
     <div class="question-card" id="questionCard">
       <span class="category-pill" id="qCategoryPill">🎵 가사 빈칸</span>
       <h2 class="question-text" id="qText">문제가 로딩 중입니다...</h2>
     </div>
 
-    <!-- Choices -->
-    <div class="choices-list" id="choicesList" role="group">
-      <!-- Injected by JS -->
-    </div>
+    <div class="choices-list" id="choicesList" role="group"></div>
 
-    <!-- Feedback card -->
     <div class="feedback-card" id="feedbackCard" hidden>
       <div class="verdict-row">
         <span class="verdict-icon" id="verdictIcon">✓</span>
@@ -124,8 +262,47 @@
   <!-- VIEW: RESULT -->
   <section class="view" id="view-result" hidden>
     <div class="result-header">
-      <p class="result-eyebrow">🎉 TEST COMPLETE</p>
-      <h2 class="result-title">덕력 고사 결과</h2>
+      <p class="result-eyebrow" id="resEyebrow">⚔️ FANDOM BATTLE RESULT</p>
+      <h2 class="result-title" id="resTitle">결과</h2>
+    </div>
+
+    <!-- 팀 점수 적립 -->
+    <div class="team-result" id="teamResultCard">
+      <div class="tr-top">
+        <span class="tr-icon" id="resTeamIcon">💜</span>
+        <div class="tr-main">
+          <p class="tr-team" id="resTeamName">BTS</p>
+          <p class="tr-points"><b id="resTeamPoints">80</b>점을 팀에 적립</p>
+        </div>
+      </div>
+      <p class="tr-diff" id="resDiffLine">보통 난이도 · 정답 1개 = 2점</p>
+      <p class="tr-rank" id="resTeamRank">이번 주 우리 팀 2위 · 80점</p>
+    </div>
+
+    <!-- 팀 대 팀 (도전장) -->
+    <div class="versus-card" id="versusCard" hidden>
+      <p class="vs-verdict" id="vsVerdict">🏅 이겼어요!</p>
+      <p class="vs-verdict-sub" id="vsVerdictSub">한 문제 차이로 우리 팀이 이겼어요.</p>
+      <div class="vs-bars">
+        <div class="vs-side">
+          <div class="vs-side-top">
+            <span class="vs-team" id="vsFriendTeam">💜 BTS</span>
+            <span class="vs-num" id="vsFriendNum">8</span>
+          </div>
+          <div class="vs-bar-track"><div class="vs-bar friend" id="vsFriendBar" style="width:80%"></div></div>
+          <span class="vs-tier" id="vsFriendTier">지수 · 💎 성골</span>
+        </div>
+        <div class="vs-divider">VS</div>
+        <div class="vs-side vs-side-me">
+          <div class="vs-side-top">
+            <span class="vs-team" id="vsMyTeam">💎 세븐틴</span>
+            <span class="vs-num" id="vsMyNum">9</span>
+          </div>
+          <div class="vs-bar-track"><div class="vs-bar me" id="vsMyBar" style="width:90%"></div></div>
+          <span class="vs-tier" id="vsMyTier">나 · 👑 신화급</span>
+        </div>
+      </div>
+      <p class="vs-note" id="vsNote">같은 10문제 · 같은 조건으로 겨뤘습니다</p>
     </div>
 
     <!-- Shareable Photocard -->
@@ -133,19 +310,17 @@
       <div class="card-shimmer"></div>
       <div class="card-top">
         <span class="card-logo">⚡ IDOL QUIZ</span>
-        <span class="card-target" id="resTargetGroup">💜 BTS 방탄 영역</span>
+        <span class="card-target" id="resTargetGroup">🎲 전국 올스타</span>
       </div>
-
       <div class="tier-badge-box">
         <span class="tier-icon" id="resTierIcon">👑</span>
         <h3 class="tier-name" id="resTierName">성골 1등 덕후</h3>
         <p class="tier-desc" id="resTierDesc">숨소리만 들어도 최애를 맞히는 살아있는 백과사전!</p>
       </div>
-
       <div class="score-display">
         <div class="score-main">
-          <span class="score-number" id="resScoreNum">90</span>
-          <span class="score-total">/ 100</span>
+          <span class="score-number" id="resScoreNum">18</span>
+          <span class="score-total" id="resScoreTotal">/ 30</span>
         </div>
         <div class="score-stats">
           <div class="stat-col">
@@ -158,24 +333,115 @@
           </div>
         </div>
       </div>
-
+      <p class="card-delta" id="resDelta" hidden>어제보다 +2문제</p>
       <div class="card-foot">
-        <span class="foot-url">idolquiz.kr · github.io/idoltable</span>
-        <span class="card-hash" id="resCodeHash">IDOL2026.B90</span>
+        <span class="foot-url">phins1dr.github.io/idoltable</span>
+        <span class="card-hash" id="resCodeHash">IDOL2026W46.810</span>
       </div>
     </div>
 
-    <!-- Actions -->
-    <div class="result-actions">
-      <button class="btn-action primary" id="btnCopyShare" type="button">
-        <span>📋 결과 복사 & 도전장 보내기</span>
-      </button>
-      <button class="btn-action secondary" id="btnRetryQuiz" type="button">
-        <span>🔄 다른 영역 도전하기</span>
-      </button>
+    <!-- 리그 코드 -->
+    <div class="code-card" id="codeCard">
+      <div class="code-head">
+        <span class="code-label">내 결과 코드 · 단톡방에 붙여넣기</span>
+        <button class="code-copy" id="btnCopyCode" type="button">복사</button>
+      </div>
+      <code class="code-value" id="myCode">KPOP.2026W46.8/10.3.BTS.덕후42</code>
+      <p class="code-hint">친구 코드를 모으면 <b>그룹 순위표</b>가 바로 서요.</p>
     </div>
 
-    <div class="toast-popup" id="toastPopup" hidden>클립보드에 결과가 복사되었습니다! 친구에게 붙여넣어 보세요.</div>
+    <div class="nick-row">
+      <label class="nick-label" for="nickInput">도전장에 표시될 이름</label>
+      <input class="nick-input" id="nickInput" type="text" maxlength="12" placeholder="닉네임" autocomplete="nickname" enterkeyhint="done">
+    </div>
+
+    <div class="result-actions">
+      <button class="btn-action primary" id="btnCopyShare" type="button">
+        <span id="shareBtnLabel">📤 도전장 보내기</span>
+      </button>
+      <button class="btn-action league" id="btnLeague" type="button">
+        <span id="leagueBtnLabel">🏆 이번 주 그룹 순위표에 올리기</span>
+      </button>
+      <button class="btn-action secondary" id="btnRetryQuiz" type="button">
+        <span id="retryBtnLabel">🔄 다른 영역 도전하기</span>
+      </button>
+    </div>
+    <p class="share-note" id="shareNote">링크를 받은 친구는 <b>내가 푼 그 10문제</b>로 겨룹니다. 카카오톡·문자 아무 데나 붙여넣어도 OK.</p>
+
+    <div class="toast-popup" id="toastPopup" hidden>복사되었습니다!</div>
+  </section>
+
+  <!-- VIEW: LEAGUE -->
+  <section class="view" id="view-league" hidden>
+    <div class="quiz-nav">
+      <button class="btn-back" id="btnLeagueBack" type="button" aria-label="홈으로">←</button>
+      <div class="league-nav-title">
+        <span class="league-nav-kicker">WEEKLY FANDOM LEAGUE</span>
+        <span class="league-nav-name" id="leagueNavName">2026 W46</span>
+      </div>
+      <button class="btn-back" id="btnLeaguePlayTop" type="button" aria-label="도전하기">⚡</button>
+    </div>
+
+    <div class="league-hero">
+      <h2 class="league-title" id="leagueTitle">2026 W46 리그</h2>
+      <p class="league-range" id="leagueRange">11.9(월) ~ 11.15(일) · 마감까지 2일</p>
+      <div class="league-stats">
+        <div class="ls-cell">
+          <span class="ls-val" id="leagueTeamRank">—</span>
+          <span class="ls-label">우리 팀 순위</span>
+        </div>
+        <div class="ls-cell">
+          <span class="ls-val" id="leagueTeamPoints">0</span>
+          <span class="ls-label">우리 팀 점수</span>
+        </div>
+        <div class="ls-cell">
+          <span class="ls-val" id="leaguePlayers">0</span>
+          <span class="ls-label">참가 인원</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <h3 class="section-title">그룹 대항 순위</h3>
+      <span class="section-tag">점수 → 인원 → 연속</span>
+    </div>
+    <div class="live-status" id="liveStatus">
+      <span class="ls-dot"></span>
+      <span class="ls-text" id="liveStatusText">실시간 랭킹 연결 중…</span>
+      <button class="ls-retry" id="btnLiveRetry" type="button" hidden>다시 연결</button>
+    </div>
+    <div class="diff-tabs" id="leagueDiffTabs" role="group" aria-label="난이도 기준">
+      <button class="dt-btn on" type="button" data-diff="0">전체</button>
+      <button class="dt-btn" type="button" data-diff="1">🌱 쉬움</button>
+      <button class="dt-btn" type="button" data-diff="2">🎵 보통</button>
+      <button class="dt-btn" type="button" data-diff="3">👑 덕후</button>
+    </div>
+    <p class="diff-caption" id="leagueDiffCaption">전체 = 난이도별 가중치 합산 (쉬움1·보통2·덕후3점)</p>
+    <div class="group-board big" id="leagueGroupBoard"><!-- JS --></div>
+
+    <div class="personal-block">
+      <div class="section-head">
+        <h3 class="section-title">개인 순위</h3>
+        <span class="section-tag">보조 지표</span>
+      </div>
+      <div class="player-board" id="leaguePlayerBoard"><!-- JS --></div>
+    </div>
+
+    <div class="code-input-box">
+      <label class="code-input-label" for="codeInput">친구 코드 붙여넣기 <span class="cb-tag">오프라인·코드 순위표</span></label>
+      <textarea class="code-input" id="codeInput" rows="3" placeholder="KPOP.2026W46.보통.8/20.3.BTS.지수&#10;줄바꿈으로 여러 개 붙여넣어도 됩니다"></textarea>
+      <button class="btn-build" id="btnBuildBoard" type="button">순위표 만들기</button>
+      <p class="code-input-hint" id="leagueCodeHint">아직 이번 시즌 기록이 없어요.</p>
+    </div>
+
+    <div class="league-share">
+      <button class="btn-copy-room" id="btnCopyRoom" type="button">🔗 이 방 순위표 링크 복사</button>
+      <p class="league-share-note">링크를 열면 누구나 같은 순위표를 보고, 자기 코드를 얹을 수 있어요.</p>
+    </div>
+
+    <div class="past-seasons" id="pastSeasons" hidden><!-- JS --></div>
+
+    <div class="toast-popup" id="toastPopupLeague" hidden>복사되었습니다!</div>
   </section>
 
 </main>
