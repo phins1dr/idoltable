@@ -29,6 +29,7 @@ assets/og-cover.png        카톡·SNS 공유 카드 (tools/make_og.py로 생성
 assets/favicon.svg
 firestore.rules.idol       실시간 랭킹용 보안 규칙(합본) — 콘솔에 게시해야 동작
 tools/make_og.py           공유 카드 생성 스크립트
+preview-mobile.html        데스크톱에서 390x844로 확인하는 미리보기 틀 (배포 사이트에서도 열림)
 ```
 
 ## 난이도 분류

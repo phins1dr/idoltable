@@ -53,7 +53,7 @@
   /* 난이도 — 정답 1개당 점수 가중치 */
   var LEVELS = [
     { id: 1, name: '쉬움', icon: '🌱', weight: 1, desc: '대표곡·가사 도입부·기본 프로필' },
-    { id: 2, name: '보통', icon: '🎵', weight: 2, desc: '타이틀곡·방송 장면·유닛' },
+    { id: 2, name: '보통', icon: '🎧', weight: 2, desc: '타이틀곡·방송 장면·유닛' },
     { id: 3, name: '덕후', icon: '👑', weight: 3, desc: 'B면·자체 예능 TMI·기록 디테일' }
   ];
 
@@ -485,7 +485,8 @@
 
   function extractCodes(text) {
     var out = [];
-    String(text || '').split(/[\n\r,~]+/).forEach(function (seg) {
+    /* 줄바꿈·쉼표·물결뿐 아니라, 한 줄에 공백으로 이어 붙은 코드도 각각 집는다 */
+    String(text || '').split(/[\n\r,~]+|(?=KPOP\.)/).forEach(function (seg) {
       var i = seg.indexOf('KPOP.');
       if (i < 0) return;
       var e = parseCode(seg.slice(i));
@@ -1221,7 +1222,7 @@
 
   function renderResultActions() {
     var c = state.challenge;
-    $('resEyebrow').textContent = c ? '⚔️ TEAM BATTLE RESULT' : '⚔️ FANDOM BATTLE RESULT';
+    $('resEyebrow').textContent = c ? '💥 TEAM BATTLE RESULT' : '💥 FANDOM BATTLE RESULT';
     $('shareBtnLabel').textContent = c ? '🔁 도전장 되돌려주기 (내 팀 점수 보내기)' : '📤 도전장 보내기 (팀 대항)';
     $('retryBtnLabel').textContent = c ? '🔁 같은 문제로 다시 도전' : '🔄 다른 영역 도전하기';
     $('shareNote').innerHTML = c
