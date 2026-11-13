@@ -777,10 +777,10 @@
         deltaEl.textContent = '어제는 쉬었어요';
         deltaEl.className = 'daily-mine-delta';
       }
-      $('dailyBtnLabel').textContent = myTeam ? teamIcon(myTeam) + ' ' + myTeam + '로 한 번 더' : '한 번 더 도전';
+      $('dailyBtnLabel').textContent = myTeam ? teamIcon(myTeam) + ' ' + myTeam + ' 한 번 더' : '한 번 더 도전';
     } else {
       mineBox.hidden = true;
-      $('dailyBtnLabel').textContent = myTeam ? teamIcon(myTeam) + ' ' + myTeam + '로 도전하기' : '응원팀 고르고 시작';
+      $('dailyBtnLabel').textContent = myTeam ? teamIcon(myTeam) + ' ' + myTeam + ' 도전하기' : '응원팀 고르고 시작';
     }
 
     renderHomeBoard();
@@ -805,7 +805,7 @@
       el.innerHTML = '<div class="gb-empty">' +
         '<p class="gb-empty-title">' + (boardDiff ? levelTag(boardDiff) + ' 순위표가 아직 비었어요' : '이번 주 순위표가 비어 있어요') + '</p>' +
         '<p class="gb-empty-desc">' + (currentTeam()
-          ? esc(currentTeam()) + '으로 한 판 풀면 1위로 올라갑니다.'
+          ? '한 판 풀면 우리 팀이 1위로 올라갑니다.'
           : '응원팀을 고르고 한 판 풀면 우리 팀이 1위로 올라갑니다.') + '</p>' +
         '</div>';
       return;
@@ -1185,7 +1185,7 @@
     var verdict, sub;
     if (my.c > c.ch || (my.tot !== c.tot && myRate > fRate + 1e-9)) {
       verdict = '🏅 우리 팀이 이겼어요!';
-      sub = diff === 1 ? '딱 한 문제 차이. 팀 승리를 가져왔어요.' : (c.team + '을(를) ' + diff + '문제 차이로 눌렀어요.');
+      sub = diff === 1 ? '딱 한 문제 차이. 팀 승리를 가져왔어요.' : ('상대 팀을 ' + diff + '문제 차이로 눌렀어요.');
       card.className = 'versus-card win';
     } else if (my.c < c.ch || (my.tot !== c.tot && myRate < fRate - 1e-9)) {
       verdict = '😤 한 문제 차이로 졌어요';
